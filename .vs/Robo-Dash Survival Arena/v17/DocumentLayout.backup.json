@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Rodrigo\\Documents\\School\\Game Development\\Robo-Dash Survival Arena\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2499E80D-C5E9-4FC8-ABE0-D53F593B8E09}|Robo-Dash Survival Arena\\Robo-Dash Survival Arena.csproj|c:\\users\\rodrigo\\documents\\school\\game development\\robo-dash survival arena\\robo-dash survival arena\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2499E80D-C5E9-4FC8-ABE0-D53F593B8E09}|Robo-Dash Survival Arena\\Robo-Dash Survival Arena.csproj|solutionrelative:robo-dash survival arena\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\Rodrigo\\Documents\\School\\Game Development\\Robo-Dash Survival Arena\\Robo-Dash Survival Arena\\Game1.cs",
+              "RelativeDocumentMoniker": "Robo-Dash Survival Arena\\Game1.cs",
+              "ToolTip": "C:\\Users\\Rodrigo\\Documents\\School\\Game Development\\Robo-Dash Survival Arena\\Robo-Dash Survival Arena\\Game1.cs",
+              "RelativeToolTip": "Robo-Dash Survival Arena\\Game1.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T20:49:32.476Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
