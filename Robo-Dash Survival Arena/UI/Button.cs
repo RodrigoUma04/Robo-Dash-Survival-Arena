@@ -4,61 +4,50 @@ using Microsoft.Xna.Framework;
 
 public class Button
 {
-    private Texture2D normalTexture;
-    private Texture2D pressedTexture;
-    private SpriteFont font;
-    private string text;
+    private Texture2D _normalTexture;
+    private Texture2D _pressedTexture;
+    private SpriteFont _font;
+    private string _text;
+    private IInputHandler _inputHandler;
+    private bool _isPressed;
 
     public Vector2 Position { get; private set; }
-    public Rectangle BoundingBox => new Rectangle((int)Position.X, (int)Position.Y, normalTexture.Width, normalTexture.Height);
+    public Rectangle BoundingBox => new Rectangle((int)Position.X, (int)Position.Y, _normalTexture.Width, _normalTexture.Height);
 
     public event System.Action OnClick;
 
-    private MouseState previousMouseState;
-    private bool isPressed;
-
-    public Button(Texture2D normalTexture, Texture2D pressedTexture,  SpriteFont font, string text, Vector2 position)
+    public Button(Texture2D normalTexture, Texture2D pressedTexture, SpriteFont font, string text, Vector2 position, IInputHandler inputHandler)
     {
-        this.normalTexture = normalTexture;
-        this.pressedTexture = pressedTexture;
-        this.font = font;
-        this.text = text;
+        this._normalTexture = normalTexture;
+        this._pressedTexture = pressedTexture;
+        this._font = font;
+        this._text = text;
         this.Position = position;
+        this._inputHandler = inputHandler;
     }
 
     public void Update()
     {
-        MouseState mouseState = Mouse.GetState();
-        var mouseRect = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
+        if (_inputHandler.IsPressed(BoundingBox))
+            _isPressed = true;
 
-        bool wasPressed = isPressed;
-        isPressed = false;
-
-        if (mouseRect.Intersects(BoundingBox))
+        if (_inputHandler.IsReleased(BoundingBox) && _isPressed)
         {
-            if (mouseState.LeftButton == ButtonState.Pressed)
-            {
-                isPressed = true;
-            }
-            else if (mouseState.LeftButton == ButtonState.Released && wasPressed)
-            {
-                OnClick?.Invoke();
-            }
+            OnClick?.Invoke();
+            _isPressed = false;
         }
-
-        previousMouseState = mouseState;
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        var texture = isPressed ? pressedTexture : normalTexture;
+        var texture = _isPressed ? _pressedTexture : _normalTexture;
         spriteBatch.Draw(texture, Position, Color.White);
 
-        Vector2 textSize = font.MeasureString(text);
+        Vector2 textSize = _font.MeasureString(_text);
         Vector2 textPosition = Position + new Vector2(
             (texture.Width - textSize.X) / 2,
             (texture.Height - textSize.Y) / 2);
 
-        spriteBatch.DrawString(font, text, textPosition, Color.Black);
+        spriteBatch.DrawString(_font, _text, textPosition, Color.Black);
     }
 }

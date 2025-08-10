@@ -8,6 +8,7 @@ namespace Robo_Dash_Survival_Arena
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private GameStateManager _gameStateManager;
 
         public Game1()
         {
@@ -18,7 +19,8 @@ namespace Robo_Dash_Survival_Arena
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            _gameStateManager = new GameStateManager();
+            _gameStateManager.AddGameState("StartMenu", new StartMenuScreen());
 
             base.Initialize();
         }
@@ -27,24 +29,24 @@ namespace Robo_Dash_Survival_Arena
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            _gameStateManager.setActiveGameState("StartMenu", Content);
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            _gameStateManager.Update(gameTime);
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            _gameStateManager.Draw(_spriteBatch);
 
             base.Draw(gameTime);
         }
