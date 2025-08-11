@@ -6,9 +6,16 @@ namespace Robo_Dash_Survival_Arena
 {
     public class Game1 : Game
     {
+        #region Screens config
+        public static int ScreenWidth = 1024;
+        public static int ScreenHeight = 512;
+        private GameStateManager _gameStateManager;
+        #endregion
+
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private GameStateManager _gameStateManager;
+
+        private MouseInputHandler _mouseInputHandler;
 
         public Game1()
         {
@@ -19,8 +26,13 @@ namespace Robo_Dash_Survival_Arena
 
         protected override void Initialize()
         {
+            _graphics.PreferredBackBufferWidth = ScreenWidth;
+            _graphics.PreferredBackBufferHeight = ScreenHeight;
+            _graphics.ApplyChanges();
+            
+            _mouseInputHandler = new MouseInputHandler();
             _gameStateManager = new GameStateManager();
-            _gameStateManager.AddGameState("StartMenu", new StartMenuScreen());
+            _gameStateManager.AddGameState("StartMenu", new StartMenuScreen(_mouseInputHandler));
 
             base.Initialize();
         }
@@ -37,6 +49,7 @@ namespace Robo_Dash_Survival_Arena
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            _mouseInputHandler.Update();
             _gameStateManager.Update(gameTime);
 
             base.Update(gameTime);

@@ -56,3 +56,15 @@
 /processorParam:TextureFormat=Compressed
 /build:UI/Font.spritefont
 
+#begin UI/Sounds/click-a.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:UI/Sounds/click-a.ogg
+
+#begin UI/Sounds/click-b.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:UI/Sounds/click-b.ogg
+
