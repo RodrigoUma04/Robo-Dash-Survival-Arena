@@ -25,6 +25,11 @@
 /processorParam:TextureFormat=Color
 /build:Backgrounds/background_color_trees.png
 
+#begin Levels/level_1.tmx
+/importer:
+/processor:
+/build:Levels/level_1.tmx
+
 #begin UI/Buttons/button_rectangle_depth_flat.png
 /importer:TextureImporter
 /processor:TextureProcessor
