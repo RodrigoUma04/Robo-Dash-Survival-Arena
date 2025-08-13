@@ -10,24 +10,28 @@ public class StartMenuScreen : IGameState
     private ButtonFactory _buttonFactory;
     private MouseInputHandler _mouseInputHandler;
     private SpriteFont _font;
+    private GameStateManager _gameStateManager;
 
-    public StartMenuScreen(MouseInputHandler mouseInputHandler)
+    public StartMenuScreen(MouseInputHandler mouseInputHandler, GameStateManager gameStateManager)
     {
         this._mouseInputHandler = mouseInputHandler;
+        this._gameStateManager = gameStateManager;
     }
 
     public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
     {
         _backgroundTile = content.Load<Texture2D>("Backgrounds/background_color_trees");
         _buttonFactory = new ButtonFactory(content, _mouseInputHandler);
-
         _font = content.Load<SpriteFont>("UI/Font");
 
         _startButton = _buttonFactory.CreateButton("Start", new Vector2(416, 250));
         _optionsButton = _buttonFactory.CreateButton("Options", new Vector2(416, 350));
 
         // TODO add state handlings
-        _startButton.OnClick += () => { };
+        _startButton.OnClick += () =>
+        {
+            _gameStateManager.StartGame();
+        };
         _optionsButton.OnClick += () => { };
     }
 

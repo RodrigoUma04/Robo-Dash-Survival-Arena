@@ -31,8 +31,12 @@ namespace Robo_Dash_Survival_Arena
             _graphics.ApplyChanges();
             
             _mouseInputHandler = new MouseInputHandler();
-            _gameStateManager = new GameStateManager();
-            _gameStateManager.AddGameState("StartMenu", new StartMenuScreen(_mouseInputHandler));
+            _gameStateManager = new GameStateManager(Content, GraphicsDevice);
+
+            _gameStateManager.AddGameState("StartMenu", new StartMenuScreen(_mouseInputHandler, _gameStateManager));
+            _gameStateManager.AddGameState("Level1Screen", new LevelOneScreen());
+
+            _gameStateManager.SetActiveGameState("StartMenu");
 
             base.Initialize();
         }
@@ -40,8 +44,6 @@ namespace Robo_Dash_Survival_Arena
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            _gameStateManager.setActiveGameState("StartMenu", Content, GraphicsDevice);
         }
 
         protected override void Update(GameTime gameTime)
@@ -57,7 +59,7 @@ namespace Robo_Dash_Survival_Arena
 
         protected override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Transparent);
 
             _gameStateManager.Draw(_spriteBatch);
 
