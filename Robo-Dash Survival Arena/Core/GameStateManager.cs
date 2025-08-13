@@ -13,12 +13,12 @@ public class GameStateManager
         _gameStates[key] = gameState;
     }
 
-    public void setActiveGameState(string key, ContentManager content)
+    public void setActiveGameState(string key, ContentManager content, GraphicsDevice graphicsDevice)
     {
         if (_gameStates.ContainsKey(key))
         {
             _activeGameState = _gameStates[key];
-            _activeGameState.LoadContent(content);
+            _activeGameState.LoadContent(content, graphicsDevice);
         }
     }
 

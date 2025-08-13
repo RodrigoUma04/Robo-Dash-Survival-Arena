@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 public interface IGameState
 {
-    void LoadContent(ContentManager content);
+    void LoadContent(ContentManager content, GraphicsDevice graphicsDevice);
     void Update(GameTime gameTime);
     void Draw(SpriteBatch spriteBatch);
 }

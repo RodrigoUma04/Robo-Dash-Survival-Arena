@@ -41,7 +41,7 @@ namespace Robo_Dash_Survival_Arena
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _gameStateManager.setActiveGameState("StartMenu", Content);
+            _gameStateManager.setActiveGameState("StartMenu", Content, GraphicsDevice);
         }
 
         protected override void Update(GameTime gameTime)

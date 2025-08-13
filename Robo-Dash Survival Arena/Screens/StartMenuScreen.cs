@@ -16,7 +16,7 @@ public class StartMenuScreen : IGameState
         this._mouseInputHandler = mouseInputHandler;
     }
 
-    public void LoadContent(ContentManager content)
+    public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
     {
         _backgroundTile = content.Load<Texture2D>("Backgrounds/background_color_trees");
         _buttonFactory = new ButtonFactory(content, _mouseInputHandler);
