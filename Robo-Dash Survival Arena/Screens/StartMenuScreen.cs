@@ -20,14 +20,13 @@ public class StartMenuScreen : IGameState
 
     public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
     {
-        _backgroundTile = content.Load<Texture2D>("Backgrounds/background_color_trees");
+        _backgroundTile = content.Load<Texture2D>("kenney_new-platformer-pack-1.0/Sprites/Backgrounds/Double/background_color_trees");
         _buttonFactory = new ButtonFactory(content, _mouseInputHandler);
         _font = content.Load<SpriteFont>("UI/Font");
 
         _startButton = _buttonFactory.CreateButton("Start", new Vector2(416, 250));
         _optionsButton = _buttonFactory.CreateButton("Options", new Vector2(416, 350));
 
-        // TODO add state handlings
         _startButton.OnClick += () =>
         {
             _gameStateManager.StartGame();
