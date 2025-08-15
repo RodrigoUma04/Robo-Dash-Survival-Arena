@@ -12,14 +12,12 @@ public class LevelOneScreen : IGameState
     private TiledMap _map;
     private TiledMapRenderer _mapRenderer;
     private Hero _hero;
-    private OrthographicCamera _camera;
+    private Camera _camera;
 
     public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
     {
         _map = content.Load<TiledMap>("Tiled/Maps/level_1");
         _mapRenderer = new TiledMapRenderer(graphicsDevice, _map);
-
-        _camera = new OrthographicCamera(graphicsDevice);
 
         var characterLayer = _map.GetLayer<TiledMapObjectLayer>("Spawns");
         if (characterLayer != null)
@@ -35,25 +33,14 @@ public class LevelOneScreen : IGameState
             }
         }
 
-        _camera.LookAt(_hero.Position);
+        _camera = new Camera(graphicsDevice, _hero.Position);
     }
 
     public void Update(GameTime gameTime)
     {
         _mapRenderer.Update(gameTime);
         _hero.Update(gameTime);
-        UpdateCamera();
-    }
-
-    private void UpdateCamera()
-    {
-        // FIXME move this to camera class
-        var heroPos = _hero.Position;
-
-        float camX = MathHelper.Clamp(heroPos.X, 512, _map.WidthInPixels - 512);
-        float camY = MathHelper.Clamp(heroPos.Y, 256, _map.HeightInPixels - 256);
-
-        _camera.LookAt(new Vector2(camX, camY));
+        _camera.Update(_hero.Position, _map);
     }
 
     public void Draw(SpriteBatch spriteBatch)
