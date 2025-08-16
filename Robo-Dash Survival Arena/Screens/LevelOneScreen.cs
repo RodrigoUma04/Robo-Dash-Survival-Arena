@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -11,26 +12,25 @@ public class LevelOneScreen : IGameState
 {
     private TiledMap _map;
     private TiledMapRenderer _mapRenderer;
-    private Hero _hero;
+    private Entity _hero;
+    private List<Entity> _entities = new List<Entity>();
     private Camera _camera;
+
+    public LevelOneScreen()
+    {
+        _hero = new Hero();
+
+        _entities.Add(_hero);
+    }
 
     public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
     {
         _map = content.Load<TiledMap>("Tiled/Maps/level_1");
         _mapRenderer = new TiledMapRenderer(graphicsDevice, _map);
 
-        var characterLayer = _map.GetLayer<TiledMapObjectLayer>("Spawns");
-        if (characterLayer != null)
+        foreach (var entity in _entities)
         {
-            foreach (var obj in characterLayer.Objects)
-            {
-                if (obj.Properties.ContainsKey("type") && obj.Properties["type"].ToString() == "hero")
-                {
-                    _hero = new Hero(new Vector2(obj.Position.X, obj.Position.Y));
-                    _hero.LoadContent(content);
-                    break;
-                }
-            }
+            entity.Spawn(_map, content);
         }
 
         _camera = new Camera(graphicsDevice, _hero.Position);
@@ -39,7 +39,12 @@ public class LevelOneScreen : IGameState
     public void Update(GameTime gameTime)
     {
         _mapRenderer.Update(gameTime);
-        _hero.Update(gameTime);
+
+        foreach (var entity in _entities)
+        {
+            entity.Update(gameTime);
+        }
+
         _camera.Update(_hero.Position, _map);
     }
 
@@ -50,7 +55,12 @@ public class LevelOneScreen : IGameState
         _mapRenderer.Draw(viewMatrix);
 
         spriteBatch.Begin(transformMatrix: viewMatrix);
-        _hero.Draw(spriteBatch);
+
+        foreach (var entity in _entities)
+        {
+            entity.Draw(spriteBatch);
+        }
+
         spriteBatch.End();
     }
 }

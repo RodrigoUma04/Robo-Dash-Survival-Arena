@@ -1,9 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.Tiled;
 using System.Collections.Generic;
 
-public abstract class BaseEntity : IEntity
+public abstract class Entity : IEntity
 {
     public Vector2 Position { get; set; }
     public CStates CurrentState { get; set; } = CStates.Idle;
@@ -44,5 +45,9 @@ public abstract class BaseEntity : IEntity
             _currentFrame = 0;
             _frameTimer = 0f;
         }
+    }
+
+    public virtual void Spawn(TiledMap map, ContentManager content)
+    {
     }
 }

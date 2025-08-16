@@ -2,16 +2,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended.Tiled;
 using System.Collections.Generic;
 
-public class Hero : BaseEntity
+public class Hero : Entity
 {
     public float Speed { get; set; } = 200f;
 
-    public Hero(Vector2 startPosition)
-    {
-        Position = startPosition;
-    }
     public override void LoadContent(ContentManager content)
     {
         Animations[CStates.Idle] = new List<Texture2D>
@@ -46,5 +43,22 @@ public class Hero : BaseEntity
         ChangeState(moving ? CStates.Walk : CStates.Idle);
 
         base.Update(gameTime);
+    }
+
+    public override void Spawn(TiledMap map, ContentManager content)
+    {
+        var characterLayer = map.GetLayer<TiledMapObjectLayer>("Spawns");
+        if (characterLayer != null)
+        {
+            foreach (var obj in characterLayer.Objects)
+            {
+                if (obj.Properties.ContainsKey("type") && obj.Properties["type"].ToString() == "hero")
+                {
+                    this.Position = new Vector2(obj.Position.X, obj.Position.Y);
+                    this.LoadContent(content);
+                    break;
+                }
+            }
+        }
     }
 }
