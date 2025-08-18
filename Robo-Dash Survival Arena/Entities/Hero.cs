@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Tiled;
 using System.Collections.Generic;
 
@@ -23,28 +22,6 @@ public class Hero : Entity
         };
     }
 
-    public override void Update(GameTime gameTime)
-    {
-        //FIXME move this to a keyboard input handler
-        var keyboard = Keyboard.GetState();
-        float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-        bool moving = false;
-
-        var pos = Position;
-
-        if (keyboard.IsKeyDown(Keys.W)) { pos.Y -= Speed * dt; moving = true; }
-        if (keyboard.IsKeyDown(Keys.S)) { pos.Y += Speed * dt; moving = true; }
-        if (keyboard.IsKeyDown(Keys.A)) { pos.X -= Speed * dt; moving = true; }
-        if (keyboard.IsKeyDown(Keys.D)) { pos.X += Speed * dt; moving = true; }
-
-        Position = pos;
-
-        ChangeState(moving ? CStates.Walk : CStates.Idle);
-
-        base.Update(gameTime);
-    }
-
     public override void Spawn(TiledMap map, ContentManager content)
     {
         var characterLayer = map.GetLayer<TiledMapObjectLayer>("Spawns");
@@ -60,5 +37,21 @@ public class Hero : Entity
                 }
             }
         }
+    }
+
+    public void Move(Vector2 direction, float deltaTime)
+    {
+        Position += direction * Speed * deltaTime;
+        ChangeState(direction != Vector2.Zero ? CStates.Walk : CStates.Idle);
+    }
+
+    public void Jump()
+    {
+        // TODO: physics-based jump
+    }
+
+    public void Duck()
+    {
+        // TODO: physics-based jump
     }
 }

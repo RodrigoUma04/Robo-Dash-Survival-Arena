@@ -8,11 +8,11 @@ public class ButtonFactory
     private Texture2D _normalTexture;
     private Texture2D _pressedTexture;
     private SpriteFont _font;
-    private IInputHandler _inputHandler;
+    private MouseInputHandler _inputHandler;
     private SoundEffect _clickA;
     private SoundEffect _clickB;
 
-    public ButtonFactory(ContentManager content, IInputHandler inputHandler)
+    public ButtonFactory(ContentManager content, MouseInputHandler inputHandler)
     {
         _normalTexture = content.Load<Texture2D>("UI/Buttons/button_rectangle_depth_flat");
         _pressedTexture = content.Load<Texture2D>("UI/Buttons/button_rectangle_flat");

@@ -6,7 +6,7 @@ public class MouseInputHandler : IInputHandler
     private MouseState _prevState;
     private MouseState _currentState;
 
-    public void Update()
+    public void Update(GameTime gameTime)
     {
         _prevState = _currentState;
         _currentState = Mouse.GetState();

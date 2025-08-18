@@ -8,7 +8,7 @@ public class Button
     private Texture2D _pressedTexture;
     private SpriteFont _font;
     private string _text;
-    private IInputHandler _inputHandler;
+    private MouseInputHandler _inputHandler;
     private bool _isPressed;
     private bool _wasPressedLastUpdate = false;
 
@@ -20,7 +20,7 @@ public class Button
 
     public event System.Action OnClick;
 
-    public Button(Texture2D normalTexture, Texture2D pressedTexture, SpriteFont font, string text, Vector2 position, IInputHandler inputHandler, SoundEffect clickA, SoundEffect clickB)
+    public Button(Texture2D normalTexture, Texture2D pressedTexture, SpriteFont font, string text, Vector2 position, MouseInputHandler inputHandler, SoundEffect clickA, SoundEffect clickB)
     {
         this._normalTexture = normalTexture;
         this._pressedTexture = pressedTexture;

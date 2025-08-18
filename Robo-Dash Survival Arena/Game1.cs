@@ -51,7 +51,7 @@ namespace Robo_Dash_Survival_Arena
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            _mouseInputHandler.Update();
+            _mouseInputHandler.Update(gameTime);
             _gameStateManager.Update(gameTime);
 
             base.Update(gameTime);

@@ -1,10 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Extended;
 using MonoGame.Extended.Tiled;
 using MonoGame.Extended.Tiled.Renderers;
 
@@ -15,12 +12,14 @@ public class LevelOneScreen : IGameState
     private Entity _hero;
     private List<Entity> _entities = new List<Entity>();
     private Camera _camera;
+    private KeyboardInputHandler _keyboardInputHandler;
 
     public LevelOneScreen()
     {
         _hero = new Hero();
-
         _entities.Add(_hero);
+        
+        _keyboardInputHandler = new KeyboardInputHandler((Hero)_hero);
     }
 
     public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
@@ -45,6 +44,7 @@ public class LevelOneScreen : IGameState
             entity.Update(gameTime);
         }
 
+        _keyboardInputHandler.Update(gameTime);
         _camera.Update(_hero.Position, _map);
     }
 
