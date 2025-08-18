@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class Hero : Entity
 {
+    public override string SpawnType => "hero";
     public float Speed { get; set; } = 200f;
 
     public override void LoadContent(ContentManager content)
@@ -20,23 +21,6 @@ public class Hero : Entity
             content.Load<Texture2D>("kenney_new-platformer-pack-1.0/Sprites/Characters/Default/character_purple_walk_a"),
             content.Load<Texture2D>("kenney_new-platformer-pack-1.0/Sprites/Characters/Default/character_purple_walk_b")
         };
-    }
-
-    public override void Spawn(TiledMap map, ContentManager content)
-    {
-        var characterLayer = map.GetLayer<TiledMapObjectLayer>("Spawns");
-        if (characterLayer != null)
-        {
-            foreach (var obj in characterLayer.Objects)
-            {
-                if (obj.Properties.ContainsKey("type") && obj.Properties["type"].ToString() == "hero")
-                {
-                    this.Position = new Vector2(obj.Position.X, obj.Position.Y);
-                    this.LoadContent(content);
-                    break;
-                }
-            }
-        }
     }
 
     public void Move(Vector2 direction, float deltaTime)

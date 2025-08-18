@@ -6,9 +6,10 @@ using System.Collections.Generic;
 
 public abstract class Entity : IEntity
 {
-    public Vector2 Position { get; set; }
-    public CStates CurrentState { get; set; } = CStates.Idle;
-    public Dictionary<CStates, List<Texture2D>> Animations { get; set; } = new();
+    public Vector2 Position { get; protected set; }
+    public CStates CurrentState { get; private set; } = CStates.Idle;
+    public Dictionary<CStates, List<Texture2D>> Animations { get; protected set; } = new();
+    public abstract string SpawnType { get; }
 
     protected int _currentFrame = 0;
     protected float _frameTime = 0.2f;
@@ -49,5 +50,18 @@ public abstract class Entity : IEntity
 
     public virtual void Spawn(TiledMap map, ContentManager content)
     {
+        var characterLayer = map.GetLayer<TiledMapObjectLayer>("Spawns");
+        if (characterLayer != null)
+        {
+            foreach (var obj in characterLayer.Objects)
+            {
+                if (obj.Properties.ContainsKey("type") && obj.Properties["type"].ToString() == SpawnType)
+                {
+                    this.Position = new Vector2(obj.Position.X, obj.Position.Y);
+                    this.LoadContent(content);
+                    break;
+                }
+            }
+        }
     }
 }

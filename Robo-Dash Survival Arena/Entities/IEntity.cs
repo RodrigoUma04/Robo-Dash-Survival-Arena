@@ -15,9 +15,10 @@ public enum CStates
 
 public interface IEntity
 {
-    Vector2 Position { get; set; }
-    CStates CurrentState { get; set; }
-    Dictionary<CStates, List<Texture2D>> Animations { get; set; }
+    Vector2 Position { get; }
+    CStates CurrentState { get; }
+    Dictionary<CStates, List<Texture2D>> Animations { get; }
+    string SpawnType { get; }
 
     void LoadContent(ContentManager content);
     void Update(GameTime gameTime);
