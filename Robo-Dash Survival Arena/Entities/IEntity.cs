@@ -10,8 +10,7 @@ public enum CStates
     Walk,
     Jump,
     Hit,
-    Duck,
-    Climb
+    Duck
 }
 
 public interface IEntity

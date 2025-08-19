@@ -39,9 +39,9 @@ public class Hero : Entity
         else if (direction.X < 0)
             FacingRight = false;
 
-        if (direction.X != 0)
+        if (direction.X != 0 && IsGrounded)
             ChangeState(CStates.Walk);
-        else
+        else if (direction.X == 0 && IsGrounded)
             ChangeState(CStates.Idle);
     }
 

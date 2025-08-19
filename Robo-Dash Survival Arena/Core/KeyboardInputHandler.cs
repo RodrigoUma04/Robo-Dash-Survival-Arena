@@ -18,7 +18,6 @@ public class KeyboardInputHandler : IInputHandler
         _previousState = _currentState;
         _currentState = Keyboard.GetState();
 
-        float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
         Vector2 moveDir = Vector2.Zero;
 
         if (_currentState.IsKeyDown(Keys.A)) moveDir.X -= 1;

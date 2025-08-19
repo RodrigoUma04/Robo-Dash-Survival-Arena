@@ -10,7 +10,6 @@ public enum CollisionType
     Ground,
     Platform,
     Killable,
-    Ladder,
     Finish
 }
 
@@ -48,7 +47,6 @@ public class CollisionHandler
                 "ground" => CollisionType.Ground,
                 "platform" => CollisionType.Platform,
                 "killable" => CollisionType.Killable,
-                "ladder" => CollisionType.Ladder,
                 "finish" => CollisionType.Finish,
                 _ => CollisionType.Wall
             };
@@ -74,27 +72,30 @@ public class CollisionHandler
             {
                 case CollisionType.Wall:
                     Console.WriteLine("Wall touched");
-                    ResolveWall(entity);
+                    entity.Velocity = new Vector2(0, entity.Velocity.Y);
                     break;
                 case CollisionType.Ground:
                     Console.WriteLine("Ground touched");
                     ResolveGround(entity);
                     break;
                 case CollisionType.Platform:
-                    if (entity.Velocity.Y >= 0 && futureBounds.Bottom <= obj.Bounds.Top)
+                    if (entity.Velocity.Y > 0)
                     {
-                        Console.WriteLine("Standing on a platform");
-                        entity.Velocity = new Vector2(entity.Velocity.X, 0);
+                        if (bounds.Bottom <= obj.Bounds.Top + 5 &&
+                            futureBounds.Bottom >= obj.Bounds.Top)
+                        {
+                            ResolveGround(entity);
+                            Console.WriteLine("Platform touched");
+                        }
                     }
                     break;
                 case CollisionType.Killable:
                     Console.WriteLine("Killable touched");
-                    break;
-                case CollisionType.Ladder:
-                    Console.WriteLine("Ladder touched");
+                    // TODO End level
                     break;
                 case CollisionType.Finish:
                     Console.WriteLine("Finish touched");
+                    // TODO finish level
                     break;
             }
         }
@@ -109,11 +110,6 @@ public class CollisionHandler
             entity.Velocity = new Vector2(entity.Velocity.X, 0);
             entity.IsGrounded = true;
         }
-    }
-
-    private void ResolveWall(Entity entity)
-    {
-        entity.Velocity = new Vector2(0, entity.Velocity.Y);
     }
 
     public IEnumerable<CollisionObject> GetCollisionObjects() => _collisionObjects;

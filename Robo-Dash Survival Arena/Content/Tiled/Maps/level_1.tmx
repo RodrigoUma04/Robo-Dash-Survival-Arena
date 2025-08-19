@@ -85,42 +85,42 @@
     <property name="type" value="platform"/>
    </properties>
   </object>
-  <object id="11" x="2048" y="768" width="64" height="27">
+  <object id="11" x="2052" y="768" width="56" height="27">
    <properties>
     <property name="type" value="platform"/>
    </properties>
   </object>
-  <object id="12" x="2176" y="704" width="64" height="27">
+  <object id="12" x="2180" y="704" width="56" height="27">
    <properties>
     <property name="type" value="platform"/>
    </properties>
   </object>
-  <object id="13" x="2304" y="640" width="64" height="27">
+  <object id="13" x="2308" y="640" width="56" height="27">
    <properties>
     <property name="type" value="platform"/>
    </properties>
   </object>
-  <object id="14" x="2176" y="576" width="64" height="27">
+  <object id="14" x="2180" y="576" width="56" height="27">
    <properties>
     <property name="type" value="platform"/>
    </properties>
   </object>
-  <object id="15" x="2048" y="512" width="64" height="27">
+  <object id="15" x="2052" y="512" width="56" height="27">
    <properties>
     <property name="type" value="platform"/>
    </properties>
   </object>
-  <object id="16" x="1920" y="448" width="64" height="27">
+  <object id="16" x="1924" y="448" width="56" height="27">
    <properties>
     <property name="type" value="platform"/>
    </properties>
   </object>
-  <object id="17" x="2048" y="384" width="64" height="27">
+  <object id="17" x="2052" y="384" width="56" height="27">
    <properties>
     <property name="type" value="platform"/>
    </properties>
   </object>
-  <object id="18" x="2176" y="320" width="64" height="27">
+  <object id="18" x="2180" y="320" width="56" height="27">
    <properties>
     <property name="type" value="platform"/>
    </properties>
@@ -150,22 +150,22 @@
     <property name="type" value="wall"/>
    </properties>
   </object>
-  <object id="32" x="3712" y="704" width="64" height="64">
+  <object id="32" x="3716" y="704" width="56" height="64">
    <properties>
     <property name="type" value="platform"/>
    </properties>
   </object>
-  <object id="33" x="3840" y="704" width="64" height="64">
+  <object id="33" x="3844" y="704" width="56" height="64">
    <properties>
     <property name="type" value="platform"/>
    </properties>
   </object>
-  <object id="34" x="3968" y="704" width="64" height="64">
+  <object id="34" x="3972" y="704" width="56" height="64">
    <properties>
     <property name="type" value="platform"/>
    </properties>
   </object>
-  <object id="35" x="4096" y="704" width="64" height="64">
+  <object id="35" x="4100" y="704" width="56" height="64">
    <properties>
     <property name="type" value="platform"/>
    </properties>
