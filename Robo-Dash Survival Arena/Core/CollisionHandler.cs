@@ -107,6 +107,7 @@ public class CollisionHandler
         if (entity.Velocity.Y > 0)
         {
             entity.Velocity = new Vector2(entity.Velocity.X, 0);
+            entity.IsGrounded = true;
         }
     }
 

@@ -7,6 +7,7 @@ public class Hero : Entity
 {
     public override string SpawnType => "hero";
     public float Speed { get; set; } = 200f;
+    public float JumpForce { get; set; } = 600f;
 
     public override void LoadContent(ContentManager content)
     {
@@ -21,6 +22,11 @@ public class Hero : Entity
         {
             content.Load<Texture2D>("kenney_new-platformer-pack-1.0/Sprites/Characters/Default/character_purple_walk_a"),
             content.Load<Texture2D>("kenney_new-platformer-pack-1.0/Sprites/Characters/Default/character_purple_walk_b")
+        };
+
+        Animations[CStates.Jump] = new List<Texture2D>
+        {
+            content.Load<Texture2D>("kenney_new-platformer-pack-1.0/Sprites/Characters/Default/character_purple_jump")
         };
     }
 
@@ -41,12 +47,12 @@ public class Hero : Entity
 
     public void Jump()
     {
-        // TODO: physics-based jump
-    }
-
-    public void Duck()
-    {
-        // TODO: ducking behavior
+        if (IsGrounded)
+        {
+            Velocity = new Vector2(Velocity.X, -JumpForce);
+            IsGrounded = false;
+            ChangeState(CStates.Jump);
+        }
     }
 
     public override Rectangle GetBoundingBox()

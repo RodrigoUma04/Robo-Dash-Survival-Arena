@@ -8,6 +8,7 @@ public abstract class Entity : IEntity
 {
     public Vector2 Position { get; set; }
     public Vector2 Velocity = Vector2.Zero;
+    public bool IsGrounded { get; set; } = true;
 
     public CStates CurrentState { get; private set; } = CStates.Idle;
     public Dictionary<CStates, List<Texture2D>> Animations { get; protected set; } = new();

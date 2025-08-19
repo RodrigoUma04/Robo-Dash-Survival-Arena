@@ -28,9 +28,6 @@ public class KeyboardInputHandler : IInputHandler
 
         if (IsKeyPressed(Keys.W))
             _hero.Jump();
-
-        if (IsKeyPressed(Keys.S))
-            _hero.Duck();            
     }
 
     private bool IsKeyPressed(Keys key)
