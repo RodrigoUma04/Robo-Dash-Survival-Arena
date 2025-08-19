@@ -11,7 +11,7 @@ public abstract class Entity : IEntity
 
     public CStates CurrentState { get; private set; } = CStates.Idle;
     public Dictionary<CStates, List<Texture2D>> Animations { get; protected set; } = new();
-
+    public bool FacingRight { get; protected set; }
     public abstract string SpawnType { get; }
     public int Width { get; protected set; } = 64;
     public int Height { get; protected set; } = 64;
@@ -38,7 +38,12 @@ public abstract class Entity : IEntity
     public virtual void Draw(SpriteBatch spriteBatch)
     {
         if (Animations.ContainsKey(CurrentState) && Animations[CurrentState].Count > 0)
-            spriteBatch.Draw(Animations[CurrentState][_currentFrame], Position, Color.White);
+        {
+            var texture = Animations[CurrentState][_currentFrame];
+            var effects = FacingRight ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+
+            spriteBatch.Draw(texture, Position, null, Color.White, 0f, Vector2.Zero, 1f, effects, 0f);
+        }
     }
 
     public void ChangeState(CStates newState)

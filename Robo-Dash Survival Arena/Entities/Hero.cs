@@ -10,6 +10,8 @@ public class Hero : Entity
 
     public override void LoadContent(ContentManager content)
     {
+        FacingRight = true;
+
         Animations[CStates.Idle] = new List<Texture2D>
         {
             content.Load<Texture2D>("kenney_new-platformer-pack-1.0/Sprites/Characters/Default/character_purple_idle")
@@ -25,6 +27,11 @@ public class Hero : Entity
     public void Move(Vector2 direction)
     {
         Velocity = new Vector2(direction.X * Speed, Velocity.Y);
+
+        if (direction.X > 0)
+            FacingRight = true;
+        else if (direction.X < 0)
+            FacingRight = false;
 
         if (direction.X != 0)
             ChangeState(CStates.Walk);
