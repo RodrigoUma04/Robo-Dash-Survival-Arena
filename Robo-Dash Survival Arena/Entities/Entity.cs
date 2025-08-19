@@ -6,10 +6,15 @@ using System.Collections.Generic;
 
 public abstract class Entity : IEntity
 {
-    public Vector2 Position { get; protected set; }
+    public Vector2 Position { get; set; }
+    public Vector2 Velocity = Vector2.Zero;
+
     public CStates CurrentState { get; private set; } = CStates.Idle;
     public Dictionary<CStates, List<Texture2D>> Animations { get; protected set; } = new();
+
     public abstract string SpawnType { get; }
+    public int Width { get; protected set; } = 64;
+    public int Height { get; protected set; } = 64;
 
     protected int _currentFrame = 0;
     protected float _frameTime = 0.2f;
@@ -33,9 +38,7 @@ public abstract class Entity : IEntity
     public virtual void Draw(SpriteBatch spriteBatch)
     {
         if (Animations.ContainsKey(CurrentState) && Animations[CurrentState].Count > 0)
-        {
             spriteBatch.Draw(Animations[CurrentState][_currentFrame], Position, Color.White);
-        }
     }
 
     public void ChangeState(CStates newState)
@@ -63,5 +66,10 @@ public abstract class Entity : IEntity
                 }
             }
         }
+    }
+
+    public virtual Rectangle GetBoundingBox()
+    {
+        return new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
     }
 }

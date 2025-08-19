@@ -24,7 +24,7 @@ public class KeyboardInputHandler : IInputHandler
         if (_currentState.IsKeyDown(Keys.A)) moveDir.X -= 1;
         if (_currentState.IsKeyDown(Keys.D)) moveDir.X += 1;
 
-        _hero.Move(moveDir, dt);
+        _hero.Move(moveDir);
 
         if (IsKeyPressed(Keys.W))
             _hero.Jump();

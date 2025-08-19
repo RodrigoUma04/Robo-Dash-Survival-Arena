@@ -13,19 +13,23 @@ public class LevelOneScreen : IGameState
     private List<Entity> _entities = new List<Entity>();
     private Camera _camera;
     private KeyboardInputHandler _keyboardInputHandler;
+    private CollisionHandler _collisionHandler;
 
     public LevelOneScreen()
     {
         _hero = new Hero();
         _entities.Add(_hero);
-        
+
         _keyboardInputHandler = new KeyboardInputHandler((Hero)_hero);
+        _collisionHandler = new CollisionHandler();
     }
 
     public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
     {
         _map = content.Load<TiledMap>("Tiled/Maps/level_1");
         _mapRenderer = new TiledMapRenderer(graphicsDevice, _map);
+
+        _collisionHandler.LoadFromMap(_map);
 
         foreach (var entity in _entities)
         {
@@ -39,12 +43,13 @@ public class LevelOneScreen : IGameState
     {
         _mapRenderer.Update(gameTime);
 
-        foreach (var entity in _entities)
-        {
-            entity.Update(gameTime);
-        }
-
         _keyboardInputHandler.Update(gameTime);
+
+        _collisionHandler.Resolve(_hero, (float)gameTime.ElapsedGameTime.TotalSeconds);
+
+        foreach (var entity in _entities)
+            entity.Update(gameTime);
+
         _camera.Update(_hero.Position, _map);
     }
 

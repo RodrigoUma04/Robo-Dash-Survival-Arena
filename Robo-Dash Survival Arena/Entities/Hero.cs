@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Extended.Tiled;
 using System.Collections.Generic;
 
 public class Hero : Entity
@@ -23,10 +22,14 @@ public class Hero : Entity
         };
     }
 
-    public void Move(Vector2 direction, float deltaTime)
+    public void Move(Vector2 direction)
     {
-        Position += direction * Speed * deltaTime;
-        ChangeState(direction != Vector2.Zero ? CStates.Walk : CStates.Idle);
+        Velocity = new Vector2(direction.X * Speed, Velocity.Y);
+
+        if (direction.X != 0)
+            ChangeState(CStates.Walk);
+        else
+            ChangeState(CStates.Idle);
     }
 
     public void Jump()
@@ -36,6 +39,11 @@ public class Hero : Entity
 
     public void Duck()
     {
-        // TODO: physics-based jump
+        // TODO: ducking behavior
+    }
+
+    public override Rectangle GetBoundingBox()
+    {
+        return new Rectangle((int)Position.X + Width / 2, (int)Position.Y + 25, Width, 100);
     }
 }
