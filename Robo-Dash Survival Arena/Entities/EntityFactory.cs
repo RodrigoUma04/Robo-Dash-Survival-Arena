@@ -10,6 +10,7 @@ public static class EntityFactory
             "hero" => new Hero(),
             "barnacle" => new Barnacle(heroRef, false),
             "g_barnacle" => new Barnacle(heroRef, true),
+            "finish" => new Flag(),
             _ => null
         };
 

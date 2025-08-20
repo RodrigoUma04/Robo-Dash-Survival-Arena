@@ -4,8 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class Barnacle : Enemy
 {
-    public override string SpawnType => "barnacle";
-
     public Barnacle(Entity hero, bool isGiant) : base(hero, isGiant) { }
 
     public override void LoadContent(ContentManager content)

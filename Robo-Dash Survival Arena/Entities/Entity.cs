@@ -13,7 +13,6 @@ public abstract class Entity : IEntity
     public CStates CurrentState { get; private set; } = CStates.Idle;
     public Dictionary<CStates, List<Texture2D>> Animations { get; protected set; } = new();
     public bool FacingRight { get; protected set; }
-    public abstract string SpawnType { get; }
     public int Width { get; protected set; } = 64;
     public int Height { get; protected set; } = 64;
 

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class Hero : Entity
 {
-    public override string SpawnType => "hero";
     public float Speed { get; set; } = 200f;
     public float JumpForce { get; set; } = 600f;
 

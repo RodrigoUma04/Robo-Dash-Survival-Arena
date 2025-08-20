@@ -20,7 +20,6 @@ public interface IEntity
     CStates CurrentState { get; }
     Dictionary<CStates, List<Texture2D>> Animations { get; }
     bool FacingRight { get; }
-    string SpawnType { get; }
     int Width { get; }
     int Height { get; }
     void LoadContent(ContentManager content);
