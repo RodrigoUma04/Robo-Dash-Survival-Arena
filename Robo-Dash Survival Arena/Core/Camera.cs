@@ -16,7 +16,7 @@ public class Camera
     public void Update(Vector2 heroPos, TiledMap map)
     {
         float camX = MathHelper.Clamp(heroPos.X, 512, map.WidthInPixels - 512);
-        float camY = MathHelper.Clamp(heroPos.Y, 256, map.HeightInPixels - 256);
+        float camY = MathHelper.Clamp(heroPos.Y + 50, 256, map.HeightInPixels - 256);
 
         _camera.LookAt(new Vector2(camX, camY));
     }

@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+
+public class Barnacle : Enemy
+{
+    public override string SpawnType => "barnacle";
+
+    public Barnacle(Entity hero, bool isGiant) : base(hero, isGiant) { }
+
+    public override void LoadContent(ContentManager content)
+    {
+        string giant = IsGiant ? "Double" : "Default";
+
+        Animations[CStates.Idle] = new List<Texture2D>
+        {
+            content.Load<Texture2D>($"kenney_new-platformer-pack-1.0/Sprites/Enemies/{giant}/barnacle_attack_rest")
+        };
+
+        Animations[CStates.Attack] = new List<Texture2D>
+        {
+            content.Load<Texture2D>($"kenney_new-platformer-pack-1.0/Sprites/Enemies/{giant}/barnacle_attack_a"),
+            content.Load<Texture2D>($"kenney_new-platformer-pack-1.0/Sprites/Enemies/{giant}/barnacle_attack_b")
+        };
+    }
+}

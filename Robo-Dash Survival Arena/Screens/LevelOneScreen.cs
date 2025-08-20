@@ -17,10 +17,6 @@ public class LevelOneScreen : IGameState
 
     public LevelOneScreen()
     {
-        _hero = new Hero();
-        _entities.Add(_hero);
-
-        _keyboardInputHandler = new KeyboardInputHandler((Hero)_hero);
         _collisionHandler = new CollisionHandler();
     }
 
@@ -31,9 +27,24 @@ public class LevelOneScreen : IGameState
 
         _collisionHandler.LoadFromMap(_map);
 
-        foreach (var entity in _entities)
+        var spawns = _map.GetLayer<TiledMapObjectLayer>("Spawns");
+        foreach (var obj in spawns.Objects)
         {
-            entity.Spawn(_map, content);
+            if (!obj.Properties.ContainsKey("type")) continue;
+
+            string type = obj.Properties["type"].ToString().ToLower();
+            var position = new Vector2(obj.Position.X, obj.Position.Y);
+
+            var entity = EntityFactory.Create(type, _hero, position, content);
+            if (entity != null)
+            {
+                _entities.Add(entity);
+                if (entity is Hero hero)
+                {
+                    _hero = hero;
+                    _keyboardInputHandler = new KeyboardInputHandler(hero);
+                }
+            }
         }
 
         _camera = new Camera(graphicsDevice, _hero.Position);

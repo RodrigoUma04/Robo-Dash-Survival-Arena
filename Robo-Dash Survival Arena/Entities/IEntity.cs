@@ -10,7 +10,8 @@ public enum CStates
     Walk,
     Jump,
     Hit,
-    Duck
+    Duck,
+    Attack
 }
 
 public interface IEntity
@@ -26,6 +27,5 @@ public interface IEntity
     void Update(GameTime gameTime);
     void Draw(SpriteBatch spriteBatch);
     void ChangeState(CStates newState);
-    void Spawn(TiledMap map, ContentManager content);
     Rectangle GetBoundingBox();
 }

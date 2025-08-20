@@ -57,23 +57,6 @@ public abstract class Entity : IEntity
         }
     }
 
-    public virtual void Spawn(TiledMap map, ContentManager content)
-    {
-        var characterLayer = map.GetLayer<TiledMapObjectLayer>("Spawns");
-        if (characterLayer != null)
-        {
-            foreach (var obj in characterLayer.Objects)
-            {
-                if (obj.Properties.ContainsKey("type") && obj.Properties["type"].ToString() == SpawnType)
-                {
-                    this.Position = new Vector2(obj.Position.X, obj.Position.Y);
-                    this.LoadContent(content);
-                    break;
-                }
-            }
-        }
-    }
-
     public virtual Rectangle GetBoundingBox()
     {
         return new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
