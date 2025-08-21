@@ -7,7 +7,7 @@ public static class EntityFactory
     {
         Entity entity = type switch
         {
-            "hero" => new Hero(),
+            "hero" => Hero.getInstance(),
             "spike" => new Spike(heroRef, false),
             "g_spike" => new Spike(heroRef, true),
             "barnacle" => new Barnacle(heroRef, false),

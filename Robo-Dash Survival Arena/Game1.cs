@@ -29,8 +29,9 @@ namespace Robo_Dash_Survival_Arena
             _graphics.PreferredBackBufferWidth = ScreenWidth;
             _graphics.PreferredBackBufferHeight = ScreenHeight;
             _graphics.ApplyChanges();
-            
+
             _mouseInputHandler = new MouseInputHandler();
+            PlayerData.getInstance().RegisterObserver(HUD.getInstance());
             _gameStateManager = new GameStateManager(Content, GraphicsDevice);
 
             _gameStateManager.AddGameState("StartMenu", new StartMenuScreen(_mouseInputHandler, _gameStateManager));

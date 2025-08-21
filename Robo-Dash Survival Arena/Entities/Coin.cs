@@ -31,6 +31,7 @@ public class Coin : Entity
         if (GetBoundingBox().Intersects(heroRef.GetBoundingBox()))
         {
             _soundEffect.Play();
+            PlayerData.getInstance().AddCoin();
             IsDestroyed = true;
         }
     }

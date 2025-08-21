@@ -14,10 +14,17 @@ public class LevelOneScreen : IGameState
     private Camera _camera;
     private KeyboardInputHandler _keyboardInputHandler;
     private CollisionHandler _collisionHandler;
+    private HUD _hud;
 
     public LevelOneScreen()
     {
         _collisionHandler = new CollisionHandler();
+
+        PlayerData playerData = PlayerData.getInstance();
+        _hud = HUD.getInstance();
+
+        playerData.NotifyObservers("Coins", playerData.Coins);
+        playerData.NotifyObservers("Lives", playerData.Lives);
     }
 
     public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
@@ -26,6 +33,7 @@ public class LevelOneScreen : IGameState
         _mapRenderer = new TiledMapRenderer(graphicsDevice, _map);
 
         _collisionHandler.LoadFromMap(_map, content);
+        _hud.LoadContent(content);
 
         var spawns = _map.GetLayer<TiledMapObjectLayer>("Spawns");
         foreach (var obj in spawns.Objects)
@@ -79,6 +87,10 @@ public class LevelOneScreen : IGameState
             entity.Draw(spriteBatch);
         }
 
+        spriteBatch.End();
+
+        spriteBatch.Begin();
+        _hud.Draw(spriteBatch);
         spriteBatch.End();
     }
 }

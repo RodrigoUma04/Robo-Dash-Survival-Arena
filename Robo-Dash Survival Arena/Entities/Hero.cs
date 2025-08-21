@@ -6,9 +6,21 @@ using System.Collections.Generic;
 
 public class Hero : Entity
 {
+    private static Hero _uniqueInstance;
     public float Speed { get; set; } = 200f;
     public float JumpForce { get; set; } = 600f;
     private SoundEffect _jumpEffect;
+
+    private Hero(){}
+
+    public static Hero getInstance()
+    {
+        if (_uniqueInstance == null)
+        {
+            _uniqueInstance = new Hero();
+        }
+        return _uniqueInstance;
+    }
 
     public override void LoadContent(ContentManager content)
     {
