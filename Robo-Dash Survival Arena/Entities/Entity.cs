@@ -12,9 +12,11 @@ public abstract class Entity : IEntity
 
     public CStates CurrentState { get; private set; } = CStates.Idle;
     public Dictionary<CStates, List<Texture2D>> Animations { get; protected set; } = new();
-    public bool FacingRight { get; protected set; }
+    public bool IsFlipped { get; protected set; } = false;
     public int Width { get; protected set; } = 64;
     public int Height { get; protected set; } = 64;
+    
+    public bool IsDestroyed { get; protected set; }
 
     protected int _currentFrame = 0;
     protected float _frameTime = 0.2f;
@@ -40,7 +42,7 @@ public abstract class Entity : IEntity
         if (Animations.ContainsKey(CurrentState) && Animations[CurrentState].Count > 0)
         {
             var texture = Animations[CurrentState][_currentFrame];
-            var effects = FacingRight ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            var effects = IsFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 
             spriteBatch.Draw(texture, Position, null, Color.White, 0f, Vector2.Zero, 1f, effects, 0f);
         }

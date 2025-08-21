@@ -25,7 +25,7 @@ public class LevelOneScreen : IGameState
         _map = content.Load<TiledMap>("Tiled/Maps/level_1");
         _mapRenderer = new TiledMapRenderer(graphicsDevice, _map);
 
-        _collisionHandler.LoadFromMap(_map);
+        _collisionHandler.LoadFromMap(_map, content);
 
         var spawns = _map.GetLayer<TiledMapObjectLayer>("Spawns");
         foreach (var obj in spawns.Objects)
@@ -60,6 +60,8 @@ public class LevelOneScreen : IGameState
 
         foreach (var entity in _entities)
             entity.Update(gameTime);
+
+        _entities.RemoveAll(e => e.IsDestroyed);
 
         _camera.Update(_hero.Position, _map);
     }

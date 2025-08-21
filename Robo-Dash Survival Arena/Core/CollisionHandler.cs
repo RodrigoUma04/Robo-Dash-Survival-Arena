@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
-using MonoGame.Extended.ECS.Systems;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using MonoGame.Extended.Tiled;
 using System;
 using System.Collections.Generic;
@@ -28,10 +29,13 @@ public class CollisionObject
 public class CollisionHandler
 {
     private readonly List<CollisionObject> _collisionObjects = new();
+    private SoundEffect _bumpEffect;
 
-    public void LoadFromMap(TiledMap map)
+    public void LoadFromMap(TiledMap map, ContentManager content)
     {
         _collisionObjects.Clear();
+
+        _bumpEffect = content.Load<SoundEffect>("kenney_new-platformer-pack-1.0/Sounds/sfx_bump");
 
         var layer = map.GetLayer<TiledMapObjectLayer>("Collisions");
         if (layer == null) return;
@@ -72,6 +76,7 @@ public class CollisionHandler
             {
                 case CollisionType.Wall:
                     Console.WriteLine("Wall touched");
+                    _bumpEffect.Play();
                     entity.Velocity = new Vector2(0, entity.Velocity.Y);
                     break;
                 case CollisionType.Ground:

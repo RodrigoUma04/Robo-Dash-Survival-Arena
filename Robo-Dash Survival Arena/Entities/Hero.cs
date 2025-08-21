@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
@@ -7,11 +8,10 @@ public class Hero : Entity
 {
     public float Speed { get; set; } = 200f;
     public float JumpForce { get; set; } = 600f;
+    private SoundEffect _jumpEffect;
 
     public override void LoadContent(ContentManager content)
     {
-        FacingRight = true;
-
         Animations[CStates.Idle] = new List<Texture2D>
         {
             content.Load<Texture2D>("kenney_new-platformer-pack-1.0/Sprites/Characters/Default/character_purple_idle")
@@ -27,6 +27,8 @@ public class Hero : Entity
         {
             content.Load<Texture2D>("kenney_new-platformer-pack-1.0/Sprites/Characters/Default/character_purple_jump")
         };
+
+        _jumpEffect = content.Load<SoundEffect>("kenney_new-platformer-pack-1.0/Sounds/sfx_jump-high");
     }
 
     public void Move(Vector2 direction)
@@ -34,9 +36,9 @@ public class Hero : Entity
         Velocity = new Vector2(direction.X * Speed, Velocity.Y);
 
         if (direction.X > 0)
-            FacingRight = true;
+            IsFlipped = false;
         else if (direction.X < 0)
-            FacingRight = false;
+            IsFlipped = true;
 
         if (direction.X != 0 && IsGrounded)
             ChangeState(CStates.Walk);
@@ -48,6 +50,7 @@ public class Hero : Entity
     {
         if (IsGrounded)
         {
+            _jumpEffect.Play();
             Velocity = new Vector2(Velocity.X, -JumpForce);
             IsGrounded = false;
             ChangeState(CStates.Jump);

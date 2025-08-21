@@ -28,13 +28,13 @@
 
 #begin kenney_new-platformer-pack-1.0/Sounds/sfx_bump.ogg
 /importer:OggImporter
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:kenney_new-platformer-pack-1.0/Sounds/sfx_bump.ogg
 
 #begin kenney_new-platformer-pack-1.0/Sounds/sfx_coin.ogg
 /importer:OggImporter
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:kenney_new-platformer-pack-1.0/Sounds/sfx_coin.ogg
 
@@ -58,13 +58,13 @@
 
 #begin kenney_new-platformer-pack-1.0/Sounds/sfx_jump-high.ogg
 /importer:OggImporter
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:kenney_new-platformer-pack-1.0/Sounds/sfx_jump-high.ogg
 
 #begin kenney_new-platformer-pack-1.0/Sounds/sfx_jump.ogg
 /importer:OggImporter
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:kenney_new-platformer-pack-1.0/Sounds/sfx_jump.ogg
 

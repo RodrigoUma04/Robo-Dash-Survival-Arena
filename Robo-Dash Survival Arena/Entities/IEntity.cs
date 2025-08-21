@@ -19,9 +19,12 @@ public interface IEntity
     Vector2 Position { get; }
     CStates CurrentState { get; }
     Dictionary<CStates, List<Texture2D>> Animations { get; }
-    bool FacingRight { get; }
+    bool IsFlipped { get; }
     int Width { get; }
     int Height { get; }
+
+    bool IsDestroyed { get; }
+
     void LoadContent(ContentManager content);
     void Update(GameTime gameTime);
     void Draw(SpriteBatch spriteBatch);
