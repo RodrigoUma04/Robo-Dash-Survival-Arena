@@ -10507,6 +10507,11 @@
 /processor:TiledMapProcessor
 /build:Tiled/Maps/level_1.tmx
 
+#begin Tiled/Maps/level_2.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:Tiled/Maps/level_2.tmx
+
 #begin Tiled/Tilesets/Backgrounds/spritesheet-backgrounds-default.tsx
 /importer:TiledMapTilesetImporter
 /processor:TiledMapTilesetProcessor

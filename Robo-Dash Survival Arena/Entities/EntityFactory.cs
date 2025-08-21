@@ -13,6 +13,8 @@ public static class EntityFactory
             "bee" => new Bee(heroRef, false),
             "barnacle" => new Barnacle(heroRef, false),
             "g_barnacle" => new Barnacle(heroRef, true),
+            "g_fire_slime" => new FireSlime(heroRef, true),
+            "saw" => new Saw(heroRef, false),
             "coin" => new Coin(heroRef),
             "finish" => new Flag(),
             _ => null

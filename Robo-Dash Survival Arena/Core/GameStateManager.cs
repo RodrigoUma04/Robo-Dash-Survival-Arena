@@ -8,7 +8,7 @@ public class GameStateManager : IObserver
     private Dictionary<string, IGameState> _gameStates = new();
     private IGameState _activeGameState;
     private IGameState _previousGameState;
-    private int _currentLevel = 1;
+    public int CurrentLevel { get; set; } = 1;
 
     private ContentManager _content;
     private GraphicsDevice _graphicsDevice;
@@ -36,7 +36,7 @@ public class GameStateManager : IObserver
 
     public void StartGame()
     {
-        SetActiveGameState($"Level{_currentLevel}Screen");
+        SetActiveGameState($"Level{CurrentLevel}Screen");
     }
 
     public void RestartLevel()
@@ -50,7 +50,11 @@ public class GameStateManager : IObserver
 
     public void NextLevel()
     {
-        _currentLevel++;
+        if (_previousGameState is LevelScreen levelScreen)
+        {
+            levelScreen.Entities.Clear();
+        }
+        CurrentLevel++;
         StartGame();
     }
 

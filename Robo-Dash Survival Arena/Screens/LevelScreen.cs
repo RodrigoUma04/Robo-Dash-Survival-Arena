@@ -17,13 +17,12 @@ public abstract class LevelScreen : IGameState
     private CollisionHandler _collisionHandler;
     private HUD _hud;
     private GameStateManager _gameStateManager;
-    public abstract string Song { get; set; }
 
-    public LevelScreen(GameStateManager gameStateManager)
+    public LevelScreen(GameStateManager gameStateManager, CollisionHandler collisionHandler)
     {
 
         _gameStateManager = gameStateManager;
-        _collisionHandler = new CollisionHandler(_gameStateManager);
+        _collisionHandler = collisionHandler;
 
         PlayerData playerData = PlayerData.getInstance();
         _hud = HUD.getInstance();
@@ -32,11 +31,12 @@ public abstract class LevelScreen : IGameState
         playerData.NotifyObservers("Lives", playerData.Lives);
     }
 
-    public virtual void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
+    public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
     {
+        _map = content.Load<TiledMap>("Tiled/Maps/level_" + _gameStateManager.CurrentLevel);
         _mapRenderer = new TiledMapRenderer(graphicsDevice, _map);
 
-        SoundManager.getInstance().PlaySong(Song);
+        SoundManager.getInstance().PlaySong("level" + _gameStateManager.CurrentLevel);
 
         _collisionHandler.LoadFromMap(_map, content);
         _hud.LoadContent(content);
