@@ -10,6 +10,7 @@ public static class EntityFactory
             "hero" => Hero.getInstance(),
             "spike" => new Spike(heroRef, false),
             "g_spike" => new Spike(heroRef, true),
+            "bee" => new Bee(heroRef, false),
             "barnacle" => new Barnacle(heroRef, false),
             "g_barnacle" => new Barnacle(heroRef, true),
             "coin" => new Coin(heroRef),

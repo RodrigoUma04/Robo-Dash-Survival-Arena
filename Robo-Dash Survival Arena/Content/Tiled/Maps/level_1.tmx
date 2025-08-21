@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="80" height="16" tilewidth="64" tileheight="64" infinite="0" nextlayerid="9" nextobjectid="87">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="80" height="16" tilewidth="64" tileheight="64" infinite="0" nextlayerid="9" nextobjectid="88">
  <tileset firstgid="1" source="../Tilesets/Backgrounds/spritesheet-backgrounds-default.tsx"/>
  <tileset firstgid="17" source="../Tilesets/Tiles/spritesheet-tiles-default.tsx"/>
  <tileset firstgid="341" source="../Tilesets/Characters/spritesheet-enemies-default.tsx"/>
@@ -24,7 +24,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="1" name="Ground" width="80" height="16">
+ <layer id="1" name="Ground" width="80" height="16" locked="1">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -64,7 +64,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup color="#00aa00" id="8" name="Collisions">
+ <objectgroup color="#00aa00" id="8" name="Collisions" visible="0" locked="1">
   <object id="6" x="0" y="0" width="64" height="832">
    <properties>
     <property name="type" value="wall"/>
@@ -171,7 +171,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#aa00ff" id="7" name="Spawns">
+ <objectgroup color="#aa00ff" id="7" name="Spawns" visible="0" locked="1">
   <object id="2" x="256" y="704" width="128" height="128">
    <properties>
     <property name="type" value="hero"/>
@@ -215,11 +215,6 @@
   <object id="55" x="4864" y="768" width="64" height="64">
    <properties>
     <property name="type" value="finish"/>
-   </properties>
-  </object>
-  <object id="65" x="1600" y="768" width="64" height="64">
-   <properties>
-    <property name="type" value="snail"/>
    </properties>
   </object>
   <object id="66" x="896" y="576" width="64" height="64">
@@ -325,6 +320,11 @@
   <object id="86" x="4224" y="576" width="64" height="64">
    <properties>
     <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="87" x="2496" y="256" width="64" height="64">
+   <properties>
+    <property name="type" value="bee"/>
    </properties>
   </object>
  </objectgroup>
