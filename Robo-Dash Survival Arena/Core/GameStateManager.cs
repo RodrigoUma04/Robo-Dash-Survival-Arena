@@ -3,10 +3,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-public class GameStateManager
+public class GameStateManager : IObserver
 {
     private Dictionary<string, IGameState> _gameStates = new();
     private IGameState _activeGameState;
+    private IGameState _previousGameState;
     private int _currentLevel = 1;
 
     private ContentManager _content;
@@ -27,6 +28,7 @@ public class GameStateManager
     {
         if (_gameStates.TryGetValue(key, out var gameState))
         {
+            _previousGameState = _activeGameState;
             _activeGameState = gameState;
             _activeGameState.LoadContent(_content, _graphicsDevice);
         }
@@ -39,6 +41,11 @@ public class GameStateManager
 
     public void RestartLevel()
     {
+        if (_previousGameState is LevelScreen levelScreen)
+        {
+            System.Console.WriteLine("Clearing entities");
+            levelScreen.Entities.Clear();
+        }
         StartGame();
     }
 
@@ -46,6 +53,17 @@ public class GameStateManager
     {
         _currentLevel++;
         StartGame();
+    }
+
+    public void EndGame()
+    {
+        if (_previousGameState is LevelScreen levelScreen)
+        {
+            System.Console.WriteLine("Clearing entities");
+            levelScreen.Entities.Clear();
+        }
+
+        SetActiveGameState("GameOver");
     }
 
     public void Update(GameTime gameTime)
@@ -56,5 +74,13 @@ public class GameStateManager
     public void Draw(SpriteBatch spriteBatch)
     {
         _activeGameState?.Draw(spriteBatch);
+    }
+
+    public void Update(string eventType, int value)
+    {
+        if (eventType == "Lives" && value <= 0)
+        {
+            EndGame();
+        }
     }
 }
