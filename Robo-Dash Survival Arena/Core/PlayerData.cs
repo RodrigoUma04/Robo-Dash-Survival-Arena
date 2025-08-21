@@ -22,6 +22,10 @@ public class PlayerData : ISubject
     public void AddCoin()
     {
         Coins++;
+        if (Coins % 15 == 0)
+        {
+            RegainLife();
+        }
         NotifyObservers("Coins", Coins);
     }
 
@@ -36,6 +40,13 @@ public class PlayerData : ISubject
     {
         Lives--;
         SoundManager.getInstance().Play("hurt");
+        NotifyObservers("Lives", Lives);
+    }
+
+    public void RegainLife()
+    {
+        Lives += 2;
+        SoundManager.getInstance().Play("life_up");
         NotifyObservers("Lives", Lives);
     }
 

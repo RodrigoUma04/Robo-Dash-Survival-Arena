@@ -28,6 +28,7 @@ public class SoundManager : IObserver
         _sounds["coin"] = content.Load<SoundEffect>(basePath + "sfx_coin");
         _sounds["hurt"] = content.Load<SoundEffect>(basePath + "sfx_hurt");
         _sounds["bump"] = content.Load<SoundEffect>(basePath + "sfx_bump");
+        _sounds["life_up"] = content.Load<SoundEffect>(basePath + "sfx_gem");
         _sounds["click_a"] = content.Load<SoundEffect>("UI/Sounds/click-a");
         _sounds["click_b"] = content.Load<SoundEffect>("UI/Sounds/click-b");
         _sounds["game_over"] = content.Load<SoundEffect>(basePath + "sfx_disappear");
