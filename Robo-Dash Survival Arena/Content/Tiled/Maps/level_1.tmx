@@ -179,37 +179,37 @@
   </object>
   <object id="47" x="928" y="704" width="128" height="128">
    <properties>
-    <property name="type" value="g_barnacle"/>
+    <property name="type" value="g_spike"/>
    </properties>
   </object>
   <object id="48" x="3776" y="768" width="64" height="64">
    <properties>
-    <property name="type" value="barnacle"/>
+    <property name="type" value="spike"/>
    </properties>
   </object>
   <object id="49" x="3840" y="768" width="64" height="64">
    <properties>
-    <property name="type" value="barnacle"/>
+    <property name="type" value="spike"/>
    </properties>
   </object>
   <object id="50" x="3968" y="768" width="64" height="64">
    <properties>
-    <property name="type" value="barnacle"/>
+    <property name="type" value="spike"/>
    </properties>
   </object>
   <object id="51" x="4032" y="768" width="64" height="64">
    <properties>
-    <property name="type" value="barnacle"/>
+    <property name="type" value="spike"/>
    </properties>
   </object>
   <object id="52" x="4160" y="768" width="64" height="64">
    <properties>
-    <property name="type" value="barnacle"/>
+    <property name="type" value="spike"/>
    </properties>
   </object>
   <object id="53" x="4224" y="768" width="64" height="64">
    <properties>
-    <property name="type" value="barnacle"/>
+    <property name="type" value="spike"/>
    </properties>
   </object>
   <object id="55" x="4864" y="768" width="64" height="64">

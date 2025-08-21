@@ -8,6 +8,8 @@ public static class EntityFactory
         Entity entity = type switch
         {
             "hero" => new Hero(),
+            "spike" => new Spike(heroRef, false),
+            "g_spike" => new Spike(heroRef, true),
             "barnacle" => new Barnacle(heroRef, false),
             "g_barnacle" => new Barnacle(heroRef, true),
             "coin" => new Coin(heroRef),
