@@ -30,6 +30,12 @@ public class CollisionHandler
 {
     private readonly List<CollisionObject> _collisionObjects = new();
     private SoundEffect _bumpEffect;
+    private GameStateManager _gameStateManager;
+
+    public CollisionHandler(GameStateManager gameStateManager)
+    {
+        _gameStateManager = gameStateManager;
+    }
 
     public void LoadFromMap(TiledMap map, ContentManager content)
     {
@@ -75,12 +81,10 @@ public class CollisionHandler
             switch (obj.Type)
             {
                 case CollisionType.Wall:
-                    Console.WriteLine("Wall touched");
                     _bumpEffect.Play();
                     entity.Velocity = new Vector2(0, entity.Velocity.Y);
                     break;
                 case CollisionType.Ground:
-                    Console.WriteLine("Ground touched");
                     ResolveGround(entity);
                     break;
                 case CollisionType.Platform:
@@ -90,17 +94,18 @@ public class CollisionHandler
                             futureBounds.Bottom >= obj.Bounds.Top)
                         {
                             ResolveGround(entity);
-                            Console.WriteLine("Platform touched");
                         }
                     }
                     break;
                 case CollisionType.Killable:
-                    Console.WriteLine("Killable touched");
-                    // TODO End level
+                    PlayerData.getInstance().LoseLife();
+                    if (PlayerData.getInstance().Lives > 0)
+                        _gameStateManager.SetActiveGameState("Retry");
+                    else
+                        _gameStateManager.SetActiveGameState("GameOver");
                     break;
                 case CollisionType.Finish:
-                    Console.WriteLine("Finish touched");
-                    // TODO finish level
+                    _gameStateManager.SetActiveGameState("NextLevel");
                     break;
             }
         }

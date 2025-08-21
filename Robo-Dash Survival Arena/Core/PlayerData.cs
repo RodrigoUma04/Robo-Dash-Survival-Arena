@@ -4,6 +4,7 @@ public class PlayerData : ISubject
 {
     private static PlayerData _uniqueInstance;
     private List<IObserver> _observers = new();
+    public GameStateManager GameStateManager { get; set; }
 
     public int Coins { get; private set; } = 0;
     public int Lives { get; private set; } = 6;
@@ -29,12 +30,22 @@ public class PlayerData : ISubject
     {
         Lives -= 2;
         NotifyObservers("Lives", Lives);
+        EndGame();
     }
 
     public void LoseHalfLife()
     {
         Lives--;
         NotifyObservers("Lives", Lives);
+        EndGame();
+    }
+
+    public void EndGame()
+    {
+        if (Lives <= 0)
+        {
+            GameStateManager.SetActiveGameState("GameOver");
+        }
     }
 
     public void RegisterObserver(IObserver observer) => _observers.Add(observer);

@@ -15,10 +15,13 @@ public class LevelOneScreen : IGameState
     private KeyboardInputHandler _keyboardInputHandler;
     private CollisionHandler _collisionHandler;
     private HUD _hud;
+    private GameStateManager _gameStateManager;
 
-    public LevelOneScreen()
+    public LevelOneScreen(GameStateManager gameStateManager)
     {
-        _collisionHandler = new CollisionHandler();
+
+        _gameStateManager = gameStateManager;
+        _collisionHandler = new CollisionHandler(_gameStateManager);
 
         PlayerData playerData = PlayerData.getInstance();
         _hud = HUD.getInstance();

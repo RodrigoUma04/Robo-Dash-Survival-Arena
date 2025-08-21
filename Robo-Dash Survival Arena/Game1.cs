@@ -33,9 +33,13 @@ namespace Robo_Dash_Survival_Arena
             _mouseInputHandler = new MouseInputHandler();
             PlayerData.getInstance().RegisterObserver(HUD.getInstance());
             _gameStateManager = new GameStateManager(Content, GraphicsDevice);
+            PlayerData.getInstance().GameStateManager = _gameStateManager;
 
             _gameStateManager.AddGameState("StartMenu", new StartMenuScreen(_mouseInputHandler, _gameStateManager));
-            _gameStateManager.AddGameState("Level1Screen", new LevelOneScreen());
+            _gameStateManager.AddGameState("Level1Screen", new LevelOneScreen(_gameStateManager));
+            _gameStateManager.AddGameState("Retry", new  RetryScreen(_mouseInputHandler, _gameStateManager));
+            _gameStateManager.AddGameState("GameOver", new  GameOverScreen(_mouseInputHandler, _gameStateManager));
+            _gameStateManager.AddGameState("NextLevel", new  NextLevelScreen(_mouseInputHandler, _gameStateManager));
 
             _gameStateManager.SetActiveGameState("StartMenu");
 
