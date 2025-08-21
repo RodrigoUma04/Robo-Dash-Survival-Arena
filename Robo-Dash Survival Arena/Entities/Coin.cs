@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework.Graphics;
 public class Coin : Entity
 {
     private Entity heroRef;
-    private SoundEffect _soundEffect;
 
     public Coin(Entity hero)
     {
@@ -20,8 +19,6 @@ public class Coin : Entity
             content.Load<Texture2D>($"kenney_new-platformer-pack-1.0/Sprites/Tiles/Default/coin_gold_side"),
             content.Load<Texture2D>($"kenney_new-platformer-pack-1.0/Sprites/Tiles/Default/coin_gold"),
         };
-
-        _soundEffect = content.Load<SoundEffect>("kenney_new-platformer-pack-1.0/Sounds/sfx_coin");
     }
 
     public override void Update(GameTime gameTime)
@@ -30,7 +27,7 @@ public class Coin : Entity
 
         if (GetBoundingBox().Intersects(heroRef.GetBoundingBox()))
         {
-            _soundEffect.Play();
+            SoundManager.getInstance().Play("coin");
             PlayerData.getInstance().AddCoin();
             IsDestroyed = true;
         }

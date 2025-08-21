@@ -42,6 +42,17 @@ public abstract class Enemy : Entity
 
     protected virtual void OnHeroCollision()
     {
-        System.Console.WriteLine("Hero hit! Lose a life.");
+        if (HeroRef is Hero hero)
+        {
+            hero.TakeDamage();
+        }
+    }
+
+    public override Rectangle GetBoundingBox()
+    {
+        if(IsGiant)
+            return new Rectangle((int)Position.X, (int)Position.Y + 20, Width, Height - 20);
+
+        return new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
     }
 }

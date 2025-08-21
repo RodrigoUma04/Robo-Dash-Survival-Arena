@@ -9,7 +9,10 @@ public class Hero : Entity
     private static Hero _uniqueInstance;
     public float Speed { get; set; } = 200f;
     public float JumpForce { get; set; } = 600f;
-    private SoundEffect _jumpEffect;
+
+    private bool _isInvincible = false;
+    private float _invincibleTimer = 0f;
+    private const float InvincibleDuration = 2f;
 
     private Hero(){}
 
@@ -39,8 +42,35 @@ public class Hero : Entity
         {
             content.Load<Texture2D>("kenney_new-platformer-pack-1.0/Sprites/Characters/Default/character_purple_jump")
         };
+    }
 
-        _jumpEffect = content.Load<SoundEffect>("kenney_new-platformer-pack-1.0/Sounds/sfx_jump-high");
+    public override void Update(GameTime gameTime)
+    {
+        base.Update(gameTime);
+
+        if (_isInvincible)
+        {
+            _invincibleTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (_invincibleTimer <= 0f)
+            {
+                _isInvincible = false;
+                _invincibleTimer = 0f;
+            }
+        }
+    }
+
+
+    public override void Draw(SpriteBatch spriteBatch)
+    {
+        if (_isInvincible)
+        {
+            if ((int)(_invincibleTimer * 10) % 2 == 0)
+                base.Draw(spriteBatch);
+        }
+        else
+        {
+            base.Draw(spriteBatch);
+        }
     }
 
     public void Move(Vector2 direction)
@@ -62,11 +92,22 @@ public class Hero : Entity
     {
         if (IsGrounded)
         {
-            _jumpEffect.Play();
+            SoundManager.getInstance().Play("jump");
             Velocity = new Vector2(Velocity.X, -JumpForce);
             IsGrounded = false;
             ChangeState(CStates.Jump);
         }
+    }
+
+    public void TakeDamage()
+    {
+        if (_isInvincible) return;
+
+        PlayerData.getInstance().LoseHalfLife();
+        SoundManager.getInstance().Play("hurt");
+
+        _isInvincible = true;
+        _invincibleTimer = InvincibleDuration;
     }
 
     public override Rectangle GetBoundingBox()

@@ -12,15 +12,12 @@ public class Button
     private bool _isPressed;
     private bool _wasPressedLastUpdate = false;
 
-    private SoundEffect _clickA;
-    private SoundEffect _clickB;
-
     public Vector2 Position { get; private set; }
     public Rectangle BoundingBox => new Rectangle((int)Position.X, (int)Position.Y, _normalTexture.Width, _normalTexture.Height);
 
     public event System.Action OnClick;
 
-    public Button(Texture2D normalTexture, Texture2D pressedTexture, SpriteFont font, string text, Vector2 position, MouseInputHandler inputHandler, SoundEffect clickA, SoundEffect clickB)
+    public Button(Texture2D normalTexture, Texture2D pressedTexture, SpriteFont font, string text, Vector2 position, MouseInputHandler inputHandler)
     {
         this._normalTexture = normalTexture;
         this._pressedTexture = pressedTexture;
@@ -28,8 +25,6 @@ public class Button
         this._text = text;
         this.Position = position;
         this._inputHandler = inputHandler;
-        this._clickA = clickA;
-        this._clickB = clickB;
     }
 
     public void Update()
@@ -37,13 +32,13 @@ public class Button
         bool isCurrentlyPressed = _inputHandler.IsPressed(BoundingBox);
         if (isCurrentlyPressed && !_wasPressedLastUpdate)
         {
-            _clickA.Play();
+            SoundManager.getInstance().Play("click_a");
             _isPressed = true;
         }
         
         if (!_inputHandler.IsPressed(BoundingBox) && _wasPressedLastUpdate && _isPressed)
         {
-            _clickB.Play();
+            SoundManager.getInstance().Play("click_b");
             OnClick?.Invoke();
             _isPressed = false;
         }

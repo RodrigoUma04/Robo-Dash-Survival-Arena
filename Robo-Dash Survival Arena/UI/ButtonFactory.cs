@@ -9,21 +9,17 @@ public class ButtonFactory
     private Texture2D _pressedTexture;
     private SpriteFont _font;
     private MouseInputHandler _inputHandler;
-    private SoundEffect _clickA;
-    private SoundEffect _clickB;
 
     public ButtonFactory(ContentManager content, MouseInputHandler inputHandler)
     {
         _normalTexture = content.Load<Texture2D>("UI/Buttons/button_rectangle_depth_flat");
         _pressedTexture = content.Load<Texture2D>("UI/Buttons/button_rectangle_flat");
         _font = content.Load<SpriteFont>("UI/Font");
-        _clickA = content.Load<SoundEffect>("UI/Sounds/click-a");
-        _clickB = content.Load<SoundEffect>("UI/Sounds/click-b");
         this._inputHandler = inputHandler;
     }
 
     public Button CreateButton(string text, Vector2 position)
     {
-        return new Button(_normalTexture, _pressedTexture, _font, text, position, _inputHandler, _clickA, _clickB);
+        return new Button(_normalTexture, _pressedTexture, _font, text, position, _inputHandler);
     }
 }

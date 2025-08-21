@@ -52,7 +52,7 @@
 
 #begin kenney_new-platformer-pack-1.0/Sounds/sfx_hurt.ogg
 /importer:OggImporter
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:kenney_new-platformer-pack-1.0/Sounds/sfx_hurt.ogg
 

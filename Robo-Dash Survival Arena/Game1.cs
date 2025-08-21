@@ -45,6 +45,7 @@ namespace Robo_Dash_Survival_Arena
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            SoundManager.getInstance().LoadContent(Content);
         }
 
         protected override void Update(GameTime gameTime)
