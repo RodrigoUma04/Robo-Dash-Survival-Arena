@@ -6,6 +6,8 @@ public class LevelOneScreen : LevelScreen
 {
     public LevelOneScreen(GameStateManager gameStateManager) : base(gameStateManager) { }
 
+    public override string Song { get; set; } = "level1";
+
     public override void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
     {
         _map = content.Load<TiledMap>("Tiled/Maps/level_1");

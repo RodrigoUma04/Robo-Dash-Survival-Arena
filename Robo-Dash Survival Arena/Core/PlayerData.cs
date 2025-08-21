@@ -8,7 +8,7 @@ public class PlayerData : ISubject
     public int Coins { get; private set; } = 0;
     public int Lives { get; private set; } = 6;
 
-    private PlayerData(){}
+    private PlayerData() { }
 
     public static PlayerData getInstance()
     {
@@ -28,12 +28,14 @@ public class PlayerData : ISubject
     public void LoseLife()
     {
         Lives -= 2;
+        SoundManager.getInstance().Play("hurt");
         NotifyObservers("Lives", Lives);
     }
 
     public void LoseHalfLife()
     {
         Lives--;
+        SoundManager.getInstance().Play("hurt");
         NotifyObservers("Lives", Lives);
     }
 

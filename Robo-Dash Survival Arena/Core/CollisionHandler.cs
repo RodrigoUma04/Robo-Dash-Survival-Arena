@@ -29,7 +29,6 @@ public class CollisionObject
 public class CollisionHandler
 {
     private readonly List<CollisionObject> _collisionObjects = new();
-    private SoundEffect _bumpEffect;
     private GameStateManager _gameStateManager;
 
     public CollisionHandler(GameStateManager gameStateManager)
@@ -40,8 +39,6 @@ public class CollisionHandler
     public void LoadFromMap(TiledMap map, ContentManager content)
     {
         _collisionObjects.Clear();
-
-        _bumpEffect = content.Load<SoundEffect>("kenney_new-platformer-pack-1.0/Sounds/sfx_bump");
 
         var layer = map.GetLayer<TiledMapObjectLayer>("Collisions");
         if (layer == null) return;
@@ -81,7 +78,7 @@ public class CollisionHandler
             switch (obj.Type)
             {
                 case CollisionType.Wall:
-                    _bumpEffect.Play();
+                    SoundManager.getInstance().Play("bump");
                     entity.Velocity = new Vector2(0, entity.Velocity.Y);
                     break;
                 case CollisionType.Ground:

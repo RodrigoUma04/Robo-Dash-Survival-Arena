@@ -104,7 +104,6 @@ public class Hero : Entity
         if (_isInvincible) return;
 
         PlayerData.getInstance().LoseHalfLife();
-        SoundManager.getInstance().Play("hurt");
 
         _isInvincible = true;
         _invincibleTimer = InvincibleDuration;

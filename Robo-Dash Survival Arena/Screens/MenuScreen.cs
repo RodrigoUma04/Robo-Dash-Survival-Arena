@@ -28,6 +28,8 @@ public abstract class MenuScreen : IGameState
         _buttonFactory = new ButtonFactory(content, _mouseInputHandler);
         _font = content.Load<SpriteFont>("UI/Font");
 
+        SoundManager.getInstance().PlaySong("menu");
+
         _button = _buttonFactory.CreateButton(Text, new Vector2(416, 250));
 
         _button.OnClick += () =>

@@ -43,7 +43,6 @@ public class GameStateManager : IObserver
     {
         if (_previousGameState is LevelScreen levelScreen)
         {
-            System.Console.WriteLine("Clearing entities");
             levelScreen.Entities.Clear();
         }
         StartGame();
@@ -57,12 +56,7 @@ public class GameStateManager : IObserver
 
     public void EndGame()
     {
-        if (_previousGameState is LevelScreen levelScreen)
-        {
-            System.Console.WriteLine("Clearing entities");
-            levelScreen.Entities.Clear();
-        }
-
+        SoundManager.getInstance().Play("game_over");
         SetActiveGameState("GameOver");
     }
 

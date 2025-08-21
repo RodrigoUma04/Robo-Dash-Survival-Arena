@@ -40,7 +40,7 @@
 
 #begin kenney_new-platformer-pack-1.0/Sounds/sfx_disappear.ogg
 /importer:OggImporter
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:kenney_new-platformer-pack-1.0/Sounds/sfx_disappear.ogg
 
@@ -10477,6 +10477,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:kenney_new-platformer-pack-1.0/Sprites/Tiles/Double/window.png
+
+#begin Music/1 Scorched Sands - Blue Lava.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/1 Scorched Sands - Blue Lava.mp3
+
+#begin Music/Alien Boss Battle Music Loop Pack for Game Developers - Taris Studios Video Game Music _ Audio Design - SoundLoadMate.com.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Alien Boss Battle Music Loop Pack for Game Developers - Taris Studios Video Game Music _ Audio Design - SoundLoadMate.com.mp3
+
+#begin Music/Ambient 2.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Ambient 2.mp3
+
+#begin Music/Let_s Start - Daniel N. Martin - SoundLoadMate.com.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Let_s Start - Daniel N. Martin - SoundLoadMate.com.mp3
 
 #begin Tiled/Maps/level_1.tmx
 /importer:TiledMapImporter

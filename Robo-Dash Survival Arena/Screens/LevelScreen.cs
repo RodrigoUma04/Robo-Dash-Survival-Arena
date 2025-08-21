@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Tiled;
 using MonoGame.Extended.Tiled.Renderers;
 
-public class LevelScreen : IGameState
+public abstract class LevelScreen : IGameState
 {
     protected TiledMap _map;
     private TiledMapRenderer _mapRenderer;
@@ -16,6 +17,7 @@ public class LevelScreen : IGameState
     private CollisionHandler _collisionHandler;
     private HUD _hud;
     private GameStateManager _gameStateManager;
+    public abstract string Song { get; set; }
 
     public LevelScreen(GameStateManager gameStateManager)
     {
@@ -33,6 +35,8 @@ public class LevelScreen : IGameState
     public virtual void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)
     {
         _mapRenderer = new TiledMapRenderer(graphicsDevice, _map);
+
+        SoundManager.getInstance().PlaySong(Song);
 
         _collisionHandler.LoadFromMap(_map, content);
         _hud.LoadContent(content);
