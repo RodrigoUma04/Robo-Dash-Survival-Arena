@@ -64,7 +64,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup color="#00aa00" id="8" name="Collisions" visible="0" locked="1">
+ <objectgroup color="#00aa00" id="8" name="Collisions">
   <object id="6" x="0" y="0" width="64" height="832">
    <properties>
     <property name="type" value="wall"/>
@@ -100,7 +100,7 @@
     <property name="type" value="wall"/>
    </properties>
   </object>
-  <object id="37" x="4800" y="704" width="192" height="128">
+  <object id="37" x="4864" y="768" width="64" height="64">
    <properties>
     <property name="type" value="finish"/>
    </properties>
@@ -171,7 +171,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#aa00ff" id="7" name="Spawns" visible="0" locked="1">
+ <objectgroup color="#aa00ff" id="7" name="Spawns" locked="1">
   <object id="2" x="256" y="704" width="128" height="128">
    <properties>
     <property name="type" value="hero"/>
