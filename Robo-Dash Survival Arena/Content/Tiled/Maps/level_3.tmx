@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="38">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="67">
  <tileset firstgid="1" source="../Tilesets/Tiles/spritesheet-tiles-default.tsx"/>
  <layer id="2" name="Background" width="32" height="16">
   <data encoding="csv">
@@ -237,6 +237,139 @@
   <object id="36" x="768" y="320" width="512" height="512">
    <properties>
     <property name="type" value="slime_boss"/>
+   </properties>
+  </object>
+  <object id="38" x="64" y="64" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="39" x="64" y="384" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="40" x="192" y="192" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="41" x="128" y="512" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="42" x="320" y="576" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="43" x="448" y="448" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="44" x="384" y="256" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="45" x="384" y="64" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="46" x="704" y="64" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="47" x="576" y="320" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="48" x="640" y="512" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="49" x="1152" y="64" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="50" x="1344" y="192" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="51" x="1536" y="64" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="52" x="1856" y="64" width="64" height="64"/>
+  <object id="53" x="1664" y="192" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="54" x="1472" y="448" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="55" x="1280" y="384" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="56" x="1280" y="576" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="57" x="1664" y="576" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="58" x="1728" y="384" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="59" x="1856" y="256" width="64" height="64"/>
+  <object id="60" x="1856" y="512" width="64" height="64"/>
+  <object id="61" x="768" y="256" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="62" x="960" y="256" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="63" x="1152" y="256" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="64" x="896" y="384" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="65" x="1024" y="512" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
+   </properties>
+  </object>
+  <object id="66" x="832" y="576" width="64" height="64">
+   <properties>
+    <property name="type" value="coin"/>
    </properties>
   </object>
  </objectgroup>
