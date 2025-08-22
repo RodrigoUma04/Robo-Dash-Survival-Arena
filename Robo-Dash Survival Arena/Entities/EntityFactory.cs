@@ -11,12 +11,11 @@ public static class EntityFactory
             "spike" => new Spike(heroRef, false),
             "g_spike" => new Spike(heroRef, true),
             "bee" => new Bee(heroRef, false),
-            "barnacle" => new Barnacle(heroRef, false),
-            "g_barnacle" => new Barnacle(heroRef, true),
             "g_fire_slime" => new FireSlime(heroRef, true),
             "saw" => new Saw(heroRef, false),
             "coin" => new Coin(heroRef),
             "finish" => new Flag(),
+            "slime_boss" => new SlimeBoss(heroRef, true),
             _ => null
         };
 

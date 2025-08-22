@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Extended.Tiled;
 using System.Collections.Generic;
 
 public abstract class Entity : IEntity
@@ -15,6 +14,7 @@ public abstract class Entity : IEntity
     public bool IsFlipped { get; protected set; } = false;
     public int Width { get; protected set; } = 64;
     public int Height { get; protected set; } = 64;
+    public float Scale { get; protected set; } = 1f;
     
     public bool IsDestroyed { get; protected set; }
 
@@ -44,7 +44,7 @@ public abstract class Entity : IEntity
             var texture = Animations[CurrentState][_currentFrame];
             var effects = IsFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 
-            spriteBatch.Draw(texture, Position, null, Color.White, 0f, Vector2.Zero, 1f, effects, 0f);
+            spriteBatch.Draw(texture, Position, null, Color.White, 0f, Vector2.Zero, Scale, effects, 0f);
         }
     }
 

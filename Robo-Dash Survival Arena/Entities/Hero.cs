@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
@@ -9,6 +8,9 @@ public class Hero : Entity
     private static Hero _uniqueInstance;
     public float Speed { get; set; } = 200f;
     public float JumpForce { get; set; } = 600f;
+
+    public bool CanShake { get; set; } = false;
+    public bool HasShaken { get; set; } = false;
 
     private bool _isInvincible = false;
     private float _invincibleTimer = 0f;

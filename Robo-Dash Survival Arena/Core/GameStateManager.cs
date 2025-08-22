@@ -80,5 +80,10 @@ public class GameStateManager : IObserver
         {
             EndGame();
         }
+        else if (eventType == "BossHP" && value <= 0)
+        {
+            //TODO win game
+            System.Console.WriteLine("Game won");
+        }
     }
 }

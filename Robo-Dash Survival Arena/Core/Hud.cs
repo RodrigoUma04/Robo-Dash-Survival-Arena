@@ -9,6 +9,9 @@ public class HUD : IObserver
     private int _coins;
     private int _lives;
 
+    private int _bossHP;
+    private int _bossMaxHP;
+
     private Texture2D _playerIcon;
     private Texture2D _livesIcon;
     private Texture2D _halfLivesIcon;
@@ -46,6 +49,11 @@ public class HUD : IObserver
     {
         if (eventType == "Coins") _coins = value;
         if (eventType == "Lives") _lives = value;
+        if (eventType == "BossHP")
+        {
+            _bossHP = value;
+            _bossMaxHP = BossData.getInstance().MaxHP;
+        }
     }
 
     public void Draw(SpriteBatch spriteBatch)
@@ -87,5 +95,24 @@ public class HUD : IObserver
 
         // Coin Icon
         spriteBatch.Draw(_coinsIcon, new Rectangle(screenWidth - padding - iconSize, padding, iconSize, iconSize), Color.White);
+
+        // Boss HP bar
+        if (_bossMaxHP > 0)
+        {
+            int barWidth = 400;
+            int barHeight = 30;
+            int x = (screenWidth - barWidth) / 2;
+            int y = padding + barHeight /2;
+
+            float hpPercent = (float)_bossHP / _bossMaxHP;
+            Rectangle backgroundRect = new Rectangle(x, y, barWidth, barHeight);
+            Rectangle hpRect = new Rectangle(x, y, (int)(barWidth * hpPercent), barHeight);
+
+            Texture2D pixel = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+            pixel.SetData(new[] { Color.White });
+
+            spriteBatch.Draw(pixel, backgroundRect, Color.DarkRed);
+            spriteBatch.Draw(pixel, hpRect, Color.LimeGreen);
+        }
     }
 }

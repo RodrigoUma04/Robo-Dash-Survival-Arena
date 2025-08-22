@@ -7,10 +7,14 @@ public class KeyboardInputHandler : IInputHandler
     private KeyboardState _previousState;
 
     private Hero _hero;
+    private GameStateManager _gameStateManager;
+    private Camera _camera;
 
-    public KeyboardInputHandler(Hero hero)
+    public KeyboardInputHandler(Hero hero, GameStateManager gameStateManager, Camera camera)
     {
         _hero = hero;
+        _gameStateManager = gameStateManager;
+        _camera = camera;
     }
 
     public void Update(GameTime gameTime)
@@ -27,6 +31,12 @@ public class KeyboardInputHandler : IInputHandler
 
         if (IsKeyPressed(Keys.W))
             _hero.Jump();
+
+        if (_gameStateManager.CurrentLevel == 3 && _hero.CanShake && IsKeyPressed(Keys.E))
+        {
+            _camera.Shake(10f, 2f);
+            _hero.HasShaken = true;
+        }
     }
 
     private bool IsKeyPressed(Keys key)

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="16" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="38">
+ <tileset firstgid="1" source="../Tilesets/Tiles/spritesheet-tiles-default.tsx"/>
+ <layer id="2" name="Background" width="32" height="16">
+  <data encoding="csv">
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="1" name="Ground" width="32" height="16">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,146,0,0,0,0,146,0,0,0,0,146,0,0,0,0,0,0,146,0,0,0,0,0,146,0,0,0,0,146,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,146,0,0,0,0,0,0,0,0,0,0,0,146,0,0,0,0,0,146,0,0,0,0,146,0,0,0,0,0,
+0,0,0,0,0,0,146,0,0,0,0,0,146,0,0,0,0,0,146,0,0,0,0,0,0,0,0,0,0,146,0,0,
+0,0,0,146,0,0,0,0,0,146,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,146,0,0,0,0,0,0,0,0,0,0,0,0,146,0,0,0,0,0,146,0,0,0,0,0,0,146,0,0,0,0,
+0,0,0,0,0,0,0,146,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,146,0,0,0,0,0,0,0,0,
+0,0,146,0,0,0,0,0,0,0,146,0,0,0,0,0,146,0,0,0,0,0,0,0,0,0,0,0,0,146,0,0,
+0,0,0,0,0,146,0,0,0,0,0,0,0,146,0,0,0,0,0,0,146,0,0,0,0,0,146,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+182,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,164,
+236,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,254,218,
+290,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,308,272
+</data>
+ </layer>
+ <layer id="3" name="Decoration" width="32" height="16">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,48,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,48,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,48,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup color="#00aa00" id="4" name="Collisions">
+  <object id="1" x="0" y="832" width="2048" height="192">
+   <properties>
+    <property name="type" value="ground"/>
+   </properties>
+  </object>
+  <object id="2" x="0" y="0" width="32" height="832">
+   <properties>
+    <property name="type" value="wall"/>
+   </properties>
+  </object>
+  <object id="3" x="2016" y="0" width="32" height="832">
+   <properties>
+    <property name="type" value="wall"/>
+   </properties>
+  </object>
+  <object id="4" x="64" y="192" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="5" x="192" y="320" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="6" x="192" y="448" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="7" x="64" y="512" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="8" x="128" y="640" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="9" x="320" y="704" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="10" x="448" y="576" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="11" x="576" y="448" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="12" x="384" y="384" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="13" x="384" y="192" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="14" x="704" y="192" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="15" x="768" y="384" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="16" x="640" y="640" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="17" x="896" y="512" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="18" x="832" y="704" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="19" x="1024" y="640" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="20" x="1280" y="704" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="21" x="1472" y="576" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="22" x="1664" y="704" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="23" x="1856" y="640" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="24" x="1280" y="512" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="25" x="1728" y="512" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="26" x="1856" y="384" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="27" x="1664" y="320" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="28" x="1344" y="320" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="29" x="1152" y="384" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="30" x="960" y="320" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="31" x="1152" y="192" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="32" x="1536" y="192" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+  <object id="33" x="1856" y="192" width="64" height="52">
+   <properties>
+    <property name="type" value="platform"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#aa00ff" id="5" name="Spawns">
+  <object id="35" x="128" y="704" width="128" height="128">
+   <properties>
+    <property name="type" value="hero"/>
+   </properties>
+  </object>
+  <object id="36" x="768" y="320" width="512" height="512">
+   <properties>
+    <property name="type" value="slime_boss"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

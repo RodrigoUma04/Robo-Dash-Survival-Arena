@@ -36,7 +36,7 @@ public class SoundManager : IObserver
         _songs["menu"] = content.Load<Song>("Music/Let_s Start - Daniel N. Martin - SoundLoadMate.com");
         _songs["level1"] = content.Load<Song>("Music/Ambient 2");
         _songs["level2"] = content.Load<Song>("Music/1 Scorched Sands - Blue Lava");
-        _songs["boss"] = content.Load<Song>("Music/Alien Boss Battle Music Loop Pack for Game Developers - Taris Studios Video Game Music _ Audio Design - SoundLoadMate.com");
+        _songs["level3"] = content.Load<Song>("Music/Alien Boss Battle Music Loop Pack for Game Developers - Taris Studios Video Game Music _ Audio Design - SoundLoadMate.com");
     }
 
     public void Play(string soundKey)

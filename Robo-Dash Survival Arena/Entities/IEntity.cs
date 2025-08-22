@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Extended.Tiled;
 using System.Collections.Generic;
 
 public enum CStates
@@ -22,6 +21,7 @@ public interface IEntity
     bool IsFlipped { get; }
     int Width { get; }
     int Height { get; }
+    float Scale { get;  }
 
     bool IsDestroyed { get; }
 

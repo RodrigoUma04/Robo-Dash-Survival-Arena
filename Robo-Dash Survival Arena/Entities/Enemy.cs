@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 public abstract class Enemy : Entity
 {
     public float DetectionRange { get; set; } = 300f;
-    public bool IsAwake { get; private set; } = false;
-
+    public bool IsAwake { get; protected set; } = false;
     public bool IsGiant { get; set; } = false;
+    public bool IsBoss { get; set; } = false;
 
     protected Entity HeroRef;
 
@@ -25,18 +25,15 @@ public abstract class Enemy : Entity
     {
         base.Update(gameTime);
 
-        if (!IsAwake && Vector2.Distance(Position, HeroRef.Position) < DetectionRange)
+        if (!IsAwake && Vector2.Distance(Position, HeroRef.Position) < DetectionRange && !IsBoss)
         {
             IsAwake = true;
             ChangeState(CStates.Attack);
         }
 
-        if (IsAwake)
+        if (GetBoundingBox().Intersects(HeroRef.GetBoundingBox()))
         {
-            if (GetBoundingBox().Intersects(HeroRef.GetBoundingBox()))
-            {
-                OnHeroCollision();
-            }
+            OnHeroCollision();
         }
     }
 

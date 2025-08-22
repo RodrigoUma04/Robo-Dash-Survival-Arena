@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -56,12 +55,11 @@ public abstract class LevelScreen : IGameState
                 if (entity is Hero hero)
                 {
                     _hero = hero;
-                    _keyboardInputHandler = new KeyboardInputHandler(hero);
+                    _camera = new Camera(graphicsDevice, _hero.Position);
+                    _keyboardInputHandler = new KeyboardInputHandler(hero, _gameStateManager, _camera);
                 }
             }
         }
-
-        _camera = new Camera(graphicsDevice, _hero.Position);
     }
 
     public void Update(GameTime gameTime)
@@ -77,7 +75,7 @@ public abstract class LevelScreen : IGameState
 
         Entities.RemoveAll(e => e.IsDestroyed);
 
-        _camera.Update(_hero.Position, _map);
+        _camera.Update(_hero.Position, _map, gameTime);
     }
 
     public void Draw(SpriteBatch spriteBatch)
