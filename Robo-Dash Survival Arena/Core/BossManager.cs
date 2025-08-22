@@ -1,19 +1,19 @@
 using System.Collections.Generic;
 
-public class BossData : ISubject
+public class BossManager : ISubject
 {
-    private static BossData _uniqueInstance;
+    private static BossManager _uniqueInstance;
     private List<IObserver> _observers = new();
 
     public int HP { get; private set; }
     public int MaxHP { get; private set; }
 
-    private BossData() { }
+    private BossManager() { }
 
-    public static BossData getInstance()
+    public static BossManager getInstance()
     {
         if (_uniqueInstance == null)
-            _uniqueInstance = new BossData();
+            _uniqueInstance = new BossManager();
         return _uniqueInstance;
     }
 

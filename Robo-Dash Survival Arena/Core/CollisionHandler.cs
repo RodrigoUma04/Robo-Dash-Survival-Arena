@@ -95,8 +95,8 @@ public class CollisionHandler
                     }
                     break;
                 case CollisionType.Killable:
-                    PlayerData.getInstance().LoseLife();
-                    if (PlayerData.getInstance().Lives > 0)
+                    PlayerManager.getInstance().LoseLife();
+                    if (PlayerManager.getInstance().Lives > 0)
                         _gameStateManager.SetActiveGameState("Retry");
                     else
                         _gameStateManager.SetActiveGameState("GameOver");

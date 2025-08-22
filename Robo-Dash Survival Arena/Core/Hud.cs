@@ -52,7 +52,7 @@ public class HUD : IObserver
         if (eventType == "BossHP")
         {
             _bossHP = value;
-            _bossMaxHP = BossData.getInstance().MaxHP;
+            _bossMaxHP = BossManager.getInstance().MaxHP;
         }
     }
 

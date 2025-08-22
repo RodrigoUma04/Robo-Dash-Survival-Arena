@@ -15,7 +15,7 @@ public class SlimeBoss : Enemy
 
     public SlimeBoss(Entity hero, bool isGiant) : base(hero, isGiant)
     {
-        BossData.getInstance().Initialize(100);
+        BossManager.getInstance().Initialize(100);
         Width = 512;
         Height = 512;
 
@@ -61,7 +61,7 @@ public class SlimeBoss : Enemy
                     hero.CanShake = true;
                     if (hero.HasShaken)
                     {
-                        BossData.getInstance().TakeDamage(10);
+                        BossManager.getInstance().TakeDamage(10);
                         hero.HasShaken = false;
                         ChangeToGuarding();
                     }

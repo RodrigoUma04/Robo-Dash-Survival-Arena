@@ -1,20 +1,20 @@
 using System.Collections.Generic;
 
-public class PlayerData : ISubject
+public class PlayerManager : ISubject
 {
-    private static PlayerData _uniqueInstance;
+    private static PlayerManager _uniqueInstance;
     private List<IObserver> _observers = new();
 
     public int Coins { get; private set; } = 0;
     public int Lives { get; private set; } = 6;
 
-    private PlayerData() { }
+    private PlayerManager() { }
 
-    public static PlayerData getInstance()
+    public static PlayerManager getInstance()
     {
         if (_uniqueInstance == null)
         {
-            _uniqueInstance = new PlayerData();
+            _uniqueInstance = new PlayerManager();
         }
         return _uniqueInstance;
     }

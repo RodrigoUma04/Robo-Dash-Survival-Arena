@@ -105,7 +105,7 @@ public class Hero : Entity
     {
         if (_isInvincible) return;
 
-        PlayerData.getInstance().LoseHalfLife();
+        PlayerManager.getInstance().LoseHalfLife();
 
         _isInvincible = true;
         _invincibleTimer = InvincibleDuration;

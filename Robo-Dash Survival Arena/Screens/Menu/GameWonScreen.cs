@@ -8,7 +8,7 @@ public class GameWonScreen : MenuScreen
         _game = game;
     }
 
-    public override string Text { get; set; } = "Exit";
+    public override string Text { get; set; } = "End Game";
     public override string Title { get; set; } = "Congratulations, you survived!";
     public override Color TitleColor { get; set; } = Color.Green;
 

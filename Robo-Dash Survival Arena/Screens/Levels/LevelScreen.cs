@@ -23,11 +23,11 @@ public abstract class LevelScreen : IGameState
         _gameStateManager = gameStateManager;
         _collisionHandler = collisionHandler;
 
-        PlayerData playerData = PlayerData.getInstance();
+        PlayerManager playerManager = PlayerManager.getInstance();
         _hud = HUD.getInstance();
 
-        playerData.NotifyObservers("Coins", playerData.Coins);
-        playerData.NotifyObservers("Lives", playerData.Lives);
+        playerManager.NotifyObservers("Coins", playerManager.Coins);
+        playerManager.NotifyObservers("Lives", playerManager.Lives);
     }
 
     public void LoadContent(ContentManager content, GraphicsDevice graphicsDevice)

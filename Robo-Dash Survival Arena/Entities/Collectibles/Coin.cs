@@ -27,7 +27,7 @@ public class Coin : Entity
 
         if (GetBoundingBox().Intersects(heroRef.GetBoundingBox()))
         {
-            PlayerData.getInstance().AddCoin();
+            PlayerManager.getInstance().AddCoin();
             IsDestroyed = true;
         }
     }

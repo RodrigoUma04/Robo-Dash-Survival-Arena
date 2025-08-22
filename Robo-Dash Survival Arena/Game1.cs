@@ -36,10 +36,10 @@ namespace Robo_Dash_Survival_Arena
             _gameStateManager = new GameStateManager(Content, GraphicsDevice);
             CollisionHandler collisionHandler = new CollisionHandler(_gameStateManager);
 
-            PlayerData.getInstance().RegisterObserver(HUD.getInstance());
-            PlayerData.getInstance().RegisterObserver(_gameStateManager);
-            BossData.getInstance().RegisterObserver(HUD.getInstance());
-            BossData.getInstance().RegisterObserver(_gameStateManager);
+            PlayerManager.getInstance().RegisterObserver(HUD.getInstance());
+            PlayerManager.getInstance().RegisterObserver(_gameStateManager);
+            BossManager.getInstance().RegisterObserver(HUD.getInstance());
+            BossManager.getInstance().RegisterObserver(_gameStateManager);
 
 
             _gameStateManager.AddGameState("StartMenu", new StartMenuScreen(_mouseInputHandler, _gameStateManager));
