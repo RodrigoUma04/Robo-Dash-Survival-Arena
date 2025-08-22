@@ -45,7 +45,10 @@ public class PlayerData : ISubject
 
     public void RegainLife()
     {
-        Lives += 2;
+        if (Lives == 5)
+            Lives++;
+        else if (Lives < 5)
+            Lives += 2;
         SoundManager.getInstance().Play("life_up");
         NotifyObservers("Lives", Lives);
     }
