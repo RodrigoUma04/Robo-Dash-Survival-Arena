@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 
-public class SoundManager : IObserver
+public class SoundManager
 {
     private static SoundManager _uniqueInstance;
     private Dictionary<string, SoundEffect> _sounds = new();
@@ -55,13 +55,5 @@ public class SoundManager : IObserver
         MediaPlayer.IsRepeating = loop;
         MediaPlayer.Play(_songs[songKey]);
     }
-    }
-
-    public void Update(string eventType, int value)
-    {
-        if (eventType == "Lives")
-            Play("hurt");
-        else if (eventType == "Coins")
-            Play("coin");
     }
 }

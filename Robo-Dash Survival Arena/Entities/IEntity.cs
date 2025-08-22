@@ -16,6 +16,7 @@ public enum CStates
 public interface IEntity
 {
     Vector2 Position { get; }
+    bool IsGrounded { get; set; }
     CStates CurrentState { get; }
     Dictionary<CStates, List<Texture2D>> Animations { get; }
     bool IsFlipped { get; }

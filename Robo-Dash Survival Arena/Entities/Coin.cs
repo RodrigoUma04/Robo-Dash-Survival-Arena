@@ -27,7 +27,6 @@ public class Coin : Entity
 
         if (GetBoundingBox().Intersects(heroRef.GetBoundingBox()))
         {
-            SoundManager.getInstance().Play("coin");
             PlayerData.getInstance().AddCoin();
             IsDestroyed = true;
         }

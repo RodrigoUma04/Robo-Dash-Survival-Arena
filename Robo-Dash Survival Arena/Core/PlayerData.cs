@@ -26,6 +26,7 @@ public class PlayerData : ISubject
         {
             RegainLife();
         }
+        SoundManager.getInstance().Play("coin");
         NotifyObservers("Coins", Coins);
     }
 

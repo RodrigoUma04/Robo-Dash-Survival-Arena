@@ -34,12 +34,12 @@ namespace Robo_Dash_Survival_Arena
 
             _mouseInputHandler = new MouseInputHandler();
             _gameStateManager = new GameStateManager(Content, GraphicsDevice);
+            CollisionHandler collisionHandler = new CollisionHandler(_gameStateManager);
+
             PlayerData.getInstance().RegisterObserver(HUD.getInstance());
             PlayerData.getInstance().RegisterObserver(_gameStateManager);
             BossData.getInstance().RegisterObserver(HUD.getInstance());
             BossData.getInstance().RegisterObserver(_gameStateManager);
-
-            CollisionHandler collisionHandler = new CollisionHandler(_gameStateManager);
 
 
             _gameStateManager.AddGameState("StartMenu", new StartMenuScreen(_mouseInputHandler, _gameStateManager));
@@ -60,6 +60,7 @@ namespace Robo_Dash_Survival_Arena
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             SoundManager.getInstance().LoadContent(Content);
+            SoundManager.getInstance().PlaySong("menu");
         }
 
         protected override void Update(GameTime gameTime)
