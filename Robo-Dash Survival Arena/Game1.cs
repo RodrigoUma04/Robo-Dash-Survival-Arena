@@ -16,12 +16,14 @@ namespace Robo_Dash_Survival_Arena
         private SpriteBatch _spriteBatch;
 
         private MouseInputHandler _mouseInputHandler;
+        public static Game1 Instance { get; private set; }
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            Instance = this;
         }
 
         protected override void Initialize()
@@ -44,9 +46,10 @@ namespace Robo_Dash_Survival_Arena
             _gameStateManager.AddGameState("Level1Screen", new LevelOneScreen(_gameStateManager, collisionHandler));
             _gameStateManager.AddGameState("Level2Screen", new LevelTwoScreen(_gameStateManager, collisionHandler));
             _gameStateManager.AddGameState("Level3Screen", new LevelThreeScreen(_gameStateManager, collisionHandler));
-            _gameStateManager.AddGameState("Retry", new  RetryScreen(_mouseInputHandler, _gameStateManager));
-            _gameStateManager.AddGameState("GameOver", new  GameOverScreen(_mouseInputHandler, _gameStateManager));
-            _gameStateManager.AddGameState("NextLevel", new  NextLevelScreen(_mouseInputHandler, _gameStateManager));
+            _gameStateManager.AddGameState("Retry", new RetryScreen(_mouseInputHandler, _gameStateManager));
+            _gameStateManager.AddGameState("GameOver", new GameOverScreen(Instance, _mouseInputHandler, _gameStateManager));
+            _gameStateManager.AddGameState("GameWon", new GameWonScreen(Instance, _mouseInputHandler, _gameStateManager));
+            _gameStateManager.AddGameState("NextLevel", new NextLevelScreen(_mouseInputHandler, _gameStateManager));
 
             _gameStateManager.SetActiveGameState("StartMenu");
 

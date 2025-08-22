@@ -82,8 +82,7 @@ public class GameStateManager : IObserver
         }
         else if (eventType == "BossHP" && value <= 0)
         {
-            //TODO win game
-            System.Console.WriteLine("Game won");
+            SetActiveGameState("GameWon");
         }
     }
 }

@@ -2,8 +2,11 @@ using Microsoft.Xna.Framework;
 
 public class GameOverScreen : MenuScreen
 {
-    public GameOverScreen(MouseInputHandler mouseInputHandler, GameStateManager gameStateManager) : base(mouseInputHandler, gameStateManager)
-    {}
+    private Game _game;
+    public GameOverScreen(Game game, MouseInputHandler mouseInputHandler, GameStateManager gameStateManager) : base(mouseInputHandler, gameStateManager)
+    {
+        _game = game;
+    }
 
     public override string Text { get; set; } = "Exit";
     public override string Title { get; set; } = "Game Over!";
@@ -11,6 +14,6 @@ public class GameOverScreen : MenuScreen
 
     public override void OnClick()
     {
-        //TODO close game
+        _game.Exit();
     }
 }
